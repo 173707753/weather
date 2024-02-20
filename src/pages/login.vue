@@ -29,7 +29,7 @@
  
 <script>
 //引入注册组件
-import register from '@/pages/home/register.vue';
+import register from '@/pages/register.vue';
 export default {
     data() {
         var validateAccount = (rule, value, callback) => {
@@ -108,7 +108,7 @@ export default {
 .login {
     width: 100%;
     height: 100vh;
-    background-image: url('../../assets/img/home/bg_new.jpg');
+    background-image: url('../assets//img/home/bg_new.jpg');
     background-size: 100% auto;
     background-position: center center;
     overflow: auto;

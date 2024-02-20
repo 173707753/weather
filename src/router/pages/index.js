@@ -2,7 +2,7 @@ export default [
 	{
 		path: '/',
 		name: '首页',
-		redirect: '/main',
+		redirect: '/home',
 	},
 	{
 		path: '/home',
@@ -30,13 +30,13 @@ export default [
 		name: 'Login',
 		meta: { isTab: false },
 		component: () =>
-			import('@/pages/home/login.vue'),
+			import('@/pages/login.vue'),
 	},
 	{
 		path: '/register',
 		name: 'Register',
 		meta: { isTab: false },
 		component: () =>
-			import('@/pages/home/register.vue'),
+			import('@/pages/register.vue'),
 	},
 ]

@@ -74,9 +74,9 @@
       </div>
     </div>
     <div class="home_bottom">
-      <!-- <router-link to="/login">
+      <router-link to="/login">
         登录
-      </router-link> -->
+      </router-link>
     </div>
   </div>
 </template>
@@ -115,6 +115,7 @@ export default {
     // 点击缩小
     getfade(k, c) {
       this.$router.push('main')
+      console.log(k, c);
     },
     tozb() {
       // this.$router.push('stark')
