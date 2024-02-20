@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="returnHome">
-      <router-link to="/home">返回</router-link>
+      <router-link to="/home"><i class="el-icon-back"></i>返回</router-link>
     </div>
     <div class="main_top">
       <div class="left">

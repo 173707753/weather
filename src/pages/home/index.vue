@@ -6,7 +6,7 @@
           style="display: flex; justify-content:space-between; align-items: center; padding: 0 10px; color: #fff; line-height: 10vh;">
           <div style="font-size:30px; font-weight: 600; "><i class="el-icon-back"></i><span
               style="margin-left: 15px;">全程监管</span></div>
-          <div><span style="margin-right: 10px;">欢迎您！监管员</span><span><el-avatar :size="size"
+          <div @click="toRunLoginHome"><span style="margin-right: 10px;">欢迎您！监管员</span><span><el-avatar :size="size"
                 :src="circleUrl"></el-avatar></span></div>
         </div>
       </el-header>
@@ -15,7 +15,7 @@
           <div class="aside">
             <div style="text-align: center; font-size: 18px ; margin-top: 2vh; margin-bottom: 4vh;">常用工具</div>
             <div v-for="(group, index) in toolGroups" :key="index" class="tools">
-              <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip">
+              <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip" @click="toRunMain">
                 <img :src="item.imgSrc" alt="" style="width: 4vh; height: 4vh;">
                 <div>{{ item.label }}</div>
               </div>
@@ -107,16 +107,16 @@ export default {
     return {
       toolGroups: [
         [
-          { imgSrc: "../../assets/img/ch/zb.png", label: "数据看板" },
-          { imgSrc: "../../assets/img/ch/zb.png", label: "作物管理" }
+          { imgSrc: "../../assets/img/jiduan/chaye.png", label: "数据看板" },
+          { imgSrc: "../../assets/img/jiduan/chaye.png", label: "作物管理" }
         ],
         [
-          { imgSrc: "../../assets/img/ch/zb.png", label: "数据看板" },
-          { imgSrc: "../../assets/img/ch/zb.png", label: "农业管理" }
+          { imgSrc: "../../assets/img/jiduan/chaye.png", label: "数据看板" },
+          { imgSrc: "../../assets/img/jiduan/chaye.png", label: "农业管理" }
         ],
         [
-          { imgSrc: "../../assets/img/ch/zb.png", label: "知识管理" },
-          { imgSrc: "../../assets/img/ch/zb.png", label: "异常管理" }
+          { imgSrc: "../../assets/img/jiduan/chaye.png", label: "知识管理" },
+          { imgSrc: "../../assets/img/jiduan/chaye.png", label: "异常管理" }
         ]
       ],
       value: new Date()
@@ -126,6 +126,12 @@ export default {
 
   },
   methods: {
+    toRunMain() {
+      this.$router.push("/main");
+    },
+    toRunLoginHome() {
+      this.$router.push("/login");
+    }
   }
 }
 </script>
