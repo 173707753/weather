@@ -1,20 +1,13 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="bot" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <!-- (晴天，多云，雨雪各天气类型，发电功率平均数据) -->
-        <div class="st_titles">
+        <!-- <div class="st_titles">
             {{ this.title }}
-        </div>
-        <div class="chart-container">
-            <!-- 折线图容器 -->
+        </div> -->
+        <!-- <div class="chart-container">
+            折线图容器
             <div id="main1" class="chart"></div>
-            <!-- 按钮浮动在折线图上 -->
-            <!-- <div class="button-container">
-                <div @click="totalEnergy(1)" class="energy-button new">总电源</div>
-                <div @click="changeEnergy(1)" class="energy-button conventional">常规电源</div>
-                <div @click="changeNewenergy(1)" class="energy-button new">新能源</div>
-            </div> -->
-        </div>
+        </div> -->
         <PopupComponent v-if="isMouseOverBot" ref="popup" @close-popup="hidePopup" :alldata="allData" />
     </div>
 </template>
@@ -155,7 +148,7 @@ export default {
         },
         //鼠标移入移出
         showPopup() {
-            this.isMouseOverBot = true;
+            this.isMouseOverBot = false;
             this.allData[0].name = this.title;
         },
         hidePopup() {
@@ -210,7 +203,8 @@ export default {
     mounted() {
         // 接收省区数据
         this.$bus.$on('formData', (data) => {
-            this.titleName = data.region + data.district + data.site
+            // this.titleName = data.region + data.district + data.site
+            console.log(data);
             this.updateChart(this.leftData);
         })
         // 接收天气数据数据
@@ -237,6 +231,9 @@ export default {
     /* height: 100%; */
     z-index: 99999;
     height: 34vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
 }
@@ -252,7 +249,7 @@ export default {
     height: calc(100% - 4vh);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/chbg_new.png');
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     transform: translateX(-50%);
     animation-name: moveRight;
     animation-duration: 1.5s;

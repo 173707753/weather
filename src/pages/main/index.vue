@@ -1,17 +1,21 @@
 <template>
   <div class="main">
+    <div class="returnHome">
+      <router-link to="/home"><i class="el-icon-back"></i>返回</router-link>
+    </div>
     <div class="main_top">
       <div class="left">
         <img width="100%" height="90%" src="../../assets/img/ch/顶部背景_new.png" alt="">
         <img style="position: absolute;left: 5%;top: 29%;" width="90%" height="25%" src="../../assets/img/ch/测试.webp"
           alt="">
         <div class="alltitle">
-          预 测 算 法 集 成 系 统
+          极 端 天 气 集 成 系 统
         </div>
-        <div class="right">
+
+        <!-- <div class="right">
           <div v-for="(item, index) in tabList" :key="index" class="tabs">
             <div class="tabitem" @click="chaneTab(index)">
-              <!-- 添加动画效果 -->
+              添加动画效果
               <div class="bg"></div>
               <div class="blob"></div>
               <img class="newImg" width="100%" v-if="item.show" height="48vh" src="../../assets/img/ch/tabhover.png"
@@ -19,13 +23,13 @@
               <img class="newImg" width="100%" v-else height="48vh" src="../../assets/img/ch/tabbg.png" alt="">
               <div style="color: rgb(226, 236, 255); z-index: 999 ;margin-top: -5px;">{{ item.title }}</div>
             </div>
-            <!-- <div class="tabimg"> -->
-            <!-- </div> -->
+            <div class="tabimg">
+            </div>
           </div>
           <div style="cursor:pointer;" @click="helpTip"><i title="帮助" class="iconfont">&#xe72d;</i></div>
           <helpTip v-if="helpTipVisible" :helpTipVisible="helpTipVisible"></helpTip>
-        </div>
-        <div class="ports">
+        </div> -->
+        <!-- <div class="ports">
           <Dialog v-if="dialogVisible" :title="`数据导入`">
             <template slot="imports">
               <div style="display: flex;">
@@ -53,8 +57,6 @@
                   style="padding: 0.3vw 0.5vw;border: 1px solid #04f2f9;border-radius: 0.6vw;font-size: 0.8vw;height: 2.6vh;">
                   下载模板</div>
               </div>
-              <!-- <el-button size="small" type="primary" plain>测试数据导入</el-button> -->
-              <!-- <el-button size="small" type="primary" plain>训练数据导入</el-button> -->
             </template>
             <template slot="bottombtn">
               <el-button @click="submit" size="small" type="primary" plain>提交</el-button>
@@ -66,32 +68,33 @@
             <el-button size="small" type="primary" plain>报告导出<i style="padding-left: 0.2vw;font-weight: bold;"
                 class="el-icon-download"></i></el-button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="main_center">
       <Insectpest style="z-index:-9" :class="tabList[2].class" />
     </div>
     <!--  -->
-    <dataManage :opendig="opendig" :switchIndex="switchIndex" @updateState="updateState"></dataManage>
+    <!-- <dataManage :opendig="opendig" :switchIndex="switchIndex" @updateState="updateState"></dataManage>
     <modelManage :openModel="openModel" :switchIndex="switchIndex" @ModelState="ModelState"></modelManage>
     <caseManage :openCase="openCase" :switchIndex="switchIndex" @CaseState="CaseState"></caseManage>
-    <knowledgeManage :openKnow="openKnow" :switchIndex="switchIndex" @KnowState="KnowState"></knowledgeManage>
+    <knowledgeManage :openKnow="openKnow" :switchIndex="switchIndex" @KnowState="KnowState"></knowledgeManage> -->
   </div>
 </template>
 
 <script>
 import Insectpest from './components/Insectpest'
-import dataManage from '@/components/dataManage.vue'
-import modelManage from '@/components/modelManage.vue'
-import caseManage from '@/components/caseManage.vue'
-import knowledgeManage from '@/components/knowledgeManage.vue'
-import Dialog from '@/components/dialog.vue'
-import util from '@/utils/request.js';
-import helpTip from './components/Insectpest/helpTip.vue'
+// import dataManage from '@/components/dataManage.vue'
+// import modelManage from '@/components/modelManage.vue'
+// import caseManage from '@/components/caseManage.vue'
+// import knowledgeManage from '@/components/knowledgeManage.vue'
+// import Dialog from '@/components/dialog.vue'
+// import util from '@/utils/request.js';
+// import helpTip from './components/Insectpest/helpTip.vue'
 export default {
   components: {
-    Insectpest, dataManage, modelManage, caseManage, knowledgeManage, Dialog, helpTip
+    Insectpest,
+    // dataManage, modelManage, caseManage, knowledgeManage, Dialog, helpTip
   },
   data() {
     return {
@@ -307,9 +310,31 @@ export default {
 .main {
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/img/home/bg_new.jpg');
+  background-image: url('../../assets/img/jiduan/daping_bgimg.jpg');
   background-size: 100% auto;
   background-position-y: 100%;
+
+  .returnHome {
+    width: 100%;
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    z-index: 999;
+
+    a {
+      text-decoration: none;
+      background-color: rgba(25, 58, 115, .5);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 1.8vh;
+      transition: background-color 0.3s;
+    }
+
+    a:hover {
+      background-color: #0073e6;
+    }
+  }
 
   .main_top {
     display: flex;

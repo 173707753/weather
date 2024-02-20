@@ -1,19 +1,19 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="top" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <div class="st_titles">
+        <!-- <div class="st_titles">
             LSTM模型发电功率预测
-        </div>
-        <div class="chart-container">
-            <!-- 折线图容器 -->
-            <div id="chart1" class="chart"></div>
-            <!-- 按钮浮动在折线图上 -->
-            <!-- <div class="button-container"> -->
-            <!-- <div @click="totalEnergy" class="energy-button new">放大</div> -->
-            <!-- <div @click="changeEnergy(1)" class="energy-button conventional">常规电源</div>
+        </div> -->
+        <!-- <div class="chart-container"> -->
+        <!-- 折线图容器 -->
+        <!-- <div id="chart1" class="chart"></div> -->
+        <!-- 按钮浮动在折线图上 -->
+        <!-- <div class="button-container"> -->
+        <!-- <div @click="totalEnergy" class="energy-button new">放大</div> -->
+        <!-- <div @click="changeEnergy(1)" class="energy-button conventional">常规电源</div>
                 <div @click="changeNewenergy(1)" class="energy-button new">新能源</div> -->
-            <!-- </div> -->
-        </div>
+        <!-- </div> -->
+        <!-- </div> -->
         <PopupComponent v-if="isMouseOverBot" ref="popup1" @close-popup="hidePopup" :alldata="allData" />
     </div>
 </template>
@@ -216,7 +216,7 @@ export default {
         },
         //鼠标移入移出
         showPopup() {
-            this.isMouseOverBot = true;
+            this.isMouseOverBot = false;
             this.allData[0].name = 'LSTM模型发电功率预测'
         },
         hidePopup() {
@@ -331,7 +331,9 @@ export default {
     /* height: 100%; */
     z-index: 99999;
     height: 34vh;
-
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
 

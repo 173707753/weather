@@ -1,4 +1,4 @@
-const defaultDocumentTitle = '预测算法集成系统' //默认html页面 title 值
+const defaultDocumentTitle = '极端天气集成系统' //默认html页面 title 值
 
 // vue.config.js
 module.exports = {
