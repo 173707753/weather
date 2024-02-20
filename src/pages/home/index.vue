@@ -28,7 +28,7 @@ export default {
   width: 100%;
   height: 100%;
   padding-top: 1%;
-  background-image: url('../../assets/img/home/bg_new.jpg');
+  background-image: url('../../assets/img/jiduan/daping_bgimg.jpg');
   background-size: 100% auto;
   background-position-y: 100%;
 

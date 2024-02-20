@@ -3,85 +3,66 @@
     <div class="Insectpest_t">
       <!-- 左边数据 -->
       <div class="Insectpest_t_left">
-        <div class="title_left">大数据管理</div>
+        <!-- <div class="title_left">大数据管理</div> -->
         <div class="scrollable-content">
-          <left1 style="height: 48%;" />
-          <left2 style="height: 48%;margin-top: 2vh" />
-          <!-- <left3 style="margin-top: 2vh" /> -->
+          <left1 style="height: 32%;" />
+          <left2 style="margin-top: 2%;height: 32%;" />
+          <left3 style="margin-top: 2%;height: 32%;" />
 
         </div>
       </div>
       <!-- 中间地图 -->
       <div class="Insectpest_t_center">
-        <!-- <div style="text-align: center;color: rgb(55, 209, 259);font-size: 32px;position: absolute;">
-          电力碳中和智能化调度
-        </div> -->
         <Map />
       </div>
       <!-- 右边数据 -->
-      <!-- <div class="title">源网储荷优化调度</div> -->
       <div class="Insectpest_t_right">
         <div class="box">
-          <div class="returnHome">
-            <!-- <router-link to="/home">返回</router-link> -->
-          </div>
-          <div class="title_right">人工智能模型</div>
-          <div class="nowTime">{{ currentTime }}</div>
+          <!-- <div class="title_right">人工智能模型</div> -->
+          <!-- <div class="nowTime">{{ currentTime }}</div> -->
         </div>
         <div class="content">
-          <div class="top" style="height: 48%;">
-            <chart1 />
-          </div>
-          <div class="bot" style="height: 48%;">
-            <chart2 />
-          </div>
-          <!-- <div class="bot" style="height: 48%;">
-            <chart3 />
-          </div> -->
+          <chart1 style="height: 32%;" />
+          <chart2 style="margin-top: 2%;height: 32%;" />
+          <chart3 style="margin-top: 2%;height: 32%;" />
         </div>
       </div>
     </div>
     <!-- 底部 -->
-    <div class="Insectpest_b">
+    <!-- <div class="Insectpest_b">
       <div class="Insectpest_b_left">
-        <!-- <left5 /> -->
+        <left5 />
       </div>
       <div class="Insectpest_b_center">
         <warningInformation />
       </div>
       <div class="Insectpest_b_right">
-        <!-- <greenServices /> -->
+        <greenServices />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import left1 from './Insectpest/left/left1'
 import left2 from './Insectpest/left/left2'
-// import left3 from './Insectpest/left/left3'
-// import left5 from './Insectpest/left5'
+import left3 from './Insectpest/left/left3'
 import Map from './Insectpest/map'
 import chart1 from './Insectpest/rightDate/chart1'
 import chart2 from './Insectpest/rightDate/chart2'
-// import chart3 from './Insectpest/rightDate/chart3'
-// import watcherStatistical from './Insectpest/watcherStatistical'
-// import watcherEnvironmental from './Insectpest/watcherEnvironmental'
-import warningInformation from './Insectpest/warningInformation'
-// import greenServices from './Insectpest/greenServices'
+import chart3 from './Insectpest/rightDate/chart3'
+// import warningInformation from './Insectpest/warningInformation'
 
-import Vue from 'vue';
-export const EventBus = new Vue()
 export default {
   components: {
     Map,
     left1,
     left2,
-    // left3,
-    warningInformation,
+    left3,
+    // warningInformation,
     chart1,
     chart2,
-    // chart3,
+    chart3,
   },
   data() {
     return {
@@ -132,8 +113,8 @@ export default {
   }
 
   .Insectpest_t_left {
-    width: 27%;
-    height: 58.5vh;
+    width: 22%;
+    height: 87vh;
     position: relative;
     margin-top: 1.3%;
 
@@ -152,7 +133,7 @@ export default {
 
     .scrollable-content {
       width: 100%;
-      height: 148.2%;
+      height: 100%;
       /* 启用垂直滚动条 */
       overflow-y: auto;
       overflow-x: hidden;
@@ -178,15 +159,15 @@ export default {
 
   .Insectpest_t_center {
     margin-top: 2vh;
-    width: 45%;
-    height: 58.5vh;
+    width: 55%;
+    height: 87vh;
     position: relative;
     overflow: hidden;
   }
 
   .Insectpest_t_right {
-    width: 27%;
-    height: 58.5vh;
+    width: 22%;
+    height: 87vh;
     position: relative;
 
     .box {
@@ -207,27 +188,6 @@ export default {
       font-weight: 600
     }
 
-    .returnHome {
-      width: 100%;
-      position: absolute;
-      left: 94%;
-      top: -2%;
-      z-index: 999;
-
-      a {
-        text-decoration: none;
-        background-color: rgba(25, 58, 115, .5);
-        color: #fff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 1.8vh;
-        transition: background-color 0.3s;
-      }
-
-      a:hover {
-        background-color: #0073e6;
-      }
-    }
 
     .title_right {
 
@@ -249,7 +209,7 @@ export default {
 
     .content {
       width: 100%;
-      height: 148%;
+      height: 100%;
       overflow-x: hidden;
       overflow-y: scroll;
       margin-top: 26px;
@@ -269,46 +229,32 @@ export default {
       /* 滚动条滑块颜色 */
     }
 
-    .top {
-      width: 100%;
-      height: 100%;
-      // height: 34vh;
-      // background-color: red;
-    }
-
-    .bot {
-      margin-top: 2vh;
-      width: 100%;
-      height: 100%;
-      // height: 34vh;
-      // background-color: red;
-    }
   }
 
-  .Insectpest_b {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 0.5%;
+  // .Insectpest_b {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   padding: 0 20px;
+  //   margin-top: 0.5%;
 
-    .Insectpest_b_left {
-      width: 27%;
-      // background-color: #fff;
-      height: 26vh;
-    }
+  //   .Insectpest_b_left {
+  //     width: 22.5%;
+  //     // background-color: #fff;
+  //     height: 26vh;
+  //   }
 
-    .Insectpest_b_center {
-      width: 45%;
-      height: 25.7vh;
-      // background-color: #fff;
-    }
+  //   .Insectpest_b_center {
+  //     width: 55%;
+  //     height: 25.7vh;
+  //     // background-color: #fff;
+  //   }
 
-    .Insectpest_b_right {
-      width: 27%;
-      height: 26vh;
-      // background-color: #fff;
-    }
-  }
+  //   .Insectpest_b_right {
+  //     width: 22.5%;
+  //     height: 26vh;
+  //     // background-color: #fff;
+  //   }
+  // }
 
 }
 </style>

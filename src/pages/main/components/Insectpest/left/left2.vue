@@ -2,11 +2,11 @@
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="bot" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
         <!-- (随机三天晴天发电功率数据) -->
-        <div class="st_titles">
+        <!-- <div class="st_titles">
             季节数据
-        </div>
+        </div> -->
         <!-- 渲染位置 -->
-        <div id="main2" style="height: calc(100% - 4vh);width: 100%;"></div>
+        <!-- <div id="main2" style="height: calc(100% - 4vh);width: 100%;"></div> -->
         <PopupComponent v-if="isMouseOverBot" ref="popup1" @close-popup="hidePopup" :alldata="allData" />
     </div>
 </template>
@@ -142,7 +142,7 @@ export default {
         },
         //鼠标移入移出
         showPopup() {
-            this.isMouseOverBot = true;
+            this.isMouseOverBot = false;
             this.allData[0].name = '季节数据'
         },
         hidePopup() {
@@ -244,6 +244,9 @@ export default {
     /* height: 100%; */
     z-index: 99999;
     height: 34vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
 
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */

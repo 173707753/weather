@@ -1,13 +1,13 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="top" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <div class="st_titles">
+        <!-- <div class="st_titles">
             GA-ELM模型发电功率预测
-        </div>
-        <div class="chart-container">
-            <!-- 折线图容器 -->
+        </div> -->
+        <!-- <div class="chart-container">
+            折线图容器
             <div id="chart2" class="chart"></div>
-        </div>
+        </div> -->
         <PopupComponent v-if="isMouseOverBot" ref="popup2" @close-popup="hidePopup" :alldata="allData" />
     </div>
 </template>
@@ -163,7 +163,7 @@ export default {
         },
         //鼠标移入移出
         showPopup() {
-            this.isMouseOverBot = true;
+            this.isMouseOverBot = false;
             this.allData[0].name = 'GA+ELM模型发电功率预测'
         },
         hidePopup() {
@@ -215,6 +215,9 @@ export default {
     /* height: 100%; */
     z-index: 99999;
     height: 34vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
 }

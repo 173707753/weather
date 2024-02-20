@@ -1,18 +1,18 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="bot" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <div class="st_titles">
+        <!-- <div class="st_titles">
             GA数据
-        </div>
-        <div class="chart-container">
-            <!-- 折线图容器 -->
-            <div id="main3" class="chart"></div>
-            <!-- 按钮浮动在折线图上 -->
-            <!-- <div class="button-container">
+        </div> -->
+        <!-- <div class="chart-container"> -->
+        <!-- 折线图容器 -->
+        <!-- <div id="main3" class="chart"></div> -->
+        <!-- 按钮浮动在折线图上 -->
+        <!-- <div class="button-container">
                 <div @click="changeEnergy(1)" class="energy-button conventional">抽蓄电量</div>
                 <div @click="changeNewenergy(1)" class="energy-button new">发电功率</div>
             </div> -->
-        </div>
+        <!-- </div> -->
         <PopupComponent v-if="isMouseOverBot" ref="popup2" @close-popup="hidePopup" :alldata="allData" />
     </div>
 </template>
@@ -141,7 +141,7 @@ export default {
         },
         //鼠标移入移出
         showPopup() {
-            this.isMouseOverBot = true;
+            this.isMouseOverBot = false;
             this.allData[0].name = 'GA数据'
         },
         hidePopup() {
@@ -201,9 +201,9 @@ export default {
     height: 34vh;
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
-    background-size: 100% 107%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/chbg_new.png');
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
 }
 
 .st_titles {

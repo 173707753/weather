@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="map">
-      <img class="map_topleft" width="4%" height="auto" src="../../../../assets/img/map/1.png" alt="">
+      <!-- <img class="map_topleft" width="4%" height="auto" src="../../../../assets/img/map/1.png" alt="">
       <img class="map_topright" width="4%" height="auto" src="../../../../assets/img/map/2.png" alt="">
       <img class="map_bottomleft" width="4%" height="auto" src="../../../../assets/img/map/3.png" alt="">
-      <img class="map_bottomright" width="4%" height="auto" src="../../../../assets/img/map/4.png" alt="">
+      <img class="map_bottomright" width="4%" height="auto" src="../../../../assets/img/map/4.png" alt=""> -->
       <div class="map_name_topleft">
         <div>
           {{ mapChartOption.geo[0].map == 'china' ? '中国' : mapChartOption.geo[0].map }}
@@ -17,19 +17,21 @@
         <i class="el-icon-upload2"></i>
       </div> -->
     </div>
-    <pointInformation ref="changePoint" :openPonit="openPonit" :pointInfo="pointInfo" @updatePoint="updatePoint" />
+    <!-- <pointInformation ref="changePoint" :openPonit="openPonit" :pointInfo="pointInfo" @updatePoint="updatePoint" /> -->
   </div>
 </template>
 
 <script>
 import * as echarts from 'echarts'
 import chinaMapJson from "@/assets/js/china.json";
-import pointInformation from '@/components/pointInformation.vue'
+// import pointInformation from '@/components/pointInformation.vue'
 // import province from '@/assets/js/province'
 import domImg from './../../../../assets/img/map/u=1800976779,620269057&fm=253&fmt=auto&app=138&f=JPEG.webp'
 import axios from 'axios'
 export default {
-  components: { pointInformation },
+  components: {
+    // pointInformation
+  },
   data() {
     return {
       openPoint: false,
@@ -83,7 +85,7 @@ export default {
       ishow: true,
       showSelect: false,
       heightStyle: {
-        height: '80vh'
+        height: '87vh'
       },
       geoCoordMap: [
       ],
@@ -97,6 +99,7 @@ export default {
         geo: [{
           map: "china", // 表示中国地图
           roam: false,
+          zoom: 1,
           selectedMode: false,
           label: {
             normal: {
@@ -140,7 +143,7 @@ export default {
           map: "china", // 表示中国地图
           roam: false,
           zlevel: -1,
-          zoom: 1.005, //当前视角的缩放比例
+          zoom: 1, //当前视角的缩放比例
           selectedMode: false,
           label: {
             normal: {
@@ -561,9 +564,9 @@ export default {
 
 <style lang="scss" scoped>
 .map {
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-image: url('../../../../assets/img/map/mapbg.png');
+  // background-size: 100% 100%;
+  // background-repeat: no-repeat;
+  // background-image: url('../../../../assets/img/map/mapbg.png');
 
 
   .map_topleft {
@@ -595,8 +598,12 @@ export default {
   }
 
   .chart-container {
-    height: 58.5vh;
-    overflow: auto;
+    #mapChart {
+      width: 100%;
+      margin-top: 10%;
+      transform: scale(1.34, 1.34);
+      z-index: 1;
+    }
   }
 
   .map_name_topleft {
@@ -607,126 +614,7 @@ export default {
     font-size: 18px;
     color: #37D1F9;
 
-    .cl {
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    .shuju {
-      font-size: 3vh;
-      font-family: countFont;
-    }
-
-    .select {
-      position: relative;
-      font-size: 1.5vh;
-      margin-top: 5px;
-      cursor: pointer;
-
-      .select_item {
-        position: absolute;
-        right: 20%;
-        background-color: RGBA(1, 22, 46, 0.4);
-        z-index: 999999;
-        color: #fff;
-
-        .select_itemp {
-          padding: 6px 12px;
-          border: 1px solid #4187B3;
-          border-bottom: none;
-
-          &:hover {
-            color: #333;
-            background-color: #5EC3F3;
-          }
-        }
-
-        .select_itemp:last-child {
-          border-bottom: 1px solid #4187B3 !important;
-        }
-      }
-    }
-
-    .leibie {
-      margin-top: 5px;
-
-      .leibie_item {
-        margin-top: 2px;
-
-        span {
-          display: inline-block;
-          margin-right: 5px;
-          color: #D8D8D8;
-        }
-
-        .leibie_items1 {
-          color: #F7FF52;
-        }
-
-        .leibie_items2 {
-          color: #23BFE8;
-        }
-
-        .leibie_items3 {
-          color: #46DFC7;
-        }
-      }
-
-      .leibie_item1 {
-        padding-left: 10px;
-        position: relative;
-
-        ::after {
-          content: ' ';
-          position: absolute;
-          left: 0;
-          top: 4px;
-          width: 8px;
-          height: 8px;
-          background-color: #F7FF52;
-          border-radius: 4px;
-        }
-      }
-
-      .leibie_item2 {
-        padding-left: 10px;
-        position: relative;
-
-        ::after {
-          content: ' ';
-          position: absolute;
-          left: 0;
-          top: 5px;
-          width: 8px;
-          height: 8px;
-          background-color: #23BFE8;
-          border-radius: 4px;
-        }
-      }
-
-      .leibie_item3 {
-        padding-left: 10px;
-        position: relative;
-
-        ::after {
-          content: ' ';
-          position: absolute;
-          left: 0;
-          top: 5px;
-          width: 8px;
-          height: 8px;
-          background-color: #46DFC7;
-          border-radius: 4px;
-        }
-      }
-    }
   }
-
-  #mapChart {
-    width: 100%;
-    z-index: 1;
-  }
-
 }
 
 .exports {
