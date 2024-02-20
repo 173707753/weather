@@ -1,7 +1,9 @@
 <template>
     <div class="login">
-        <div class="login_form">
+        <div class="bg_login_new">
             <p>极端天气系统</p>
+        </div>
+        <div class="login_form">
             <el-tabs v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="登录" name="first">
                     <el-form :model="loginForm" :rules="rules" ref="loginForm" @submit.native.prevent>
@@ -13,9 +15,9 @@
                             <el-input type="password" autocomplete="off" v-model="loginForm.password"
                                 prefix-icon="el-icon-lock" placeholder="请输入密码"></el-input>
                         </el-form-item>
-                        <el-form-item class="btns">
+                        <el-form-item>
                             <el-button type="primary" @click="goToLogin" native-type="submit">登录</el-button>
-                            <el-button @click="resetLoginForm">重置</el-button>
+                            <!-- <el-button @click="resetLoginForm">重置</el-button> -->
                         </el-form-item>
                     </el-form>
                 </el-tab-pane>
@@ -85,7 +87,7 @@ export default {
                         return false;
                     } else {
                         this.$message({ message: "登陆成功", type: "success" });
-                        this.$router.push("/main");
+                        this.$router.push("/home");
                     }
                 } else {
                     this.$message.error("登陆失败");
@@ -114,28 +116,104 @@ export default {
     overflow: auto;
     position: relative;
 
-    .login_form {
+    .bg_login_new {
         width: 25vw;
-        height: 32vh;
+        height: 40vh;
         position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -200px;
-        margin-top: -150px;
-        padding: 10px;
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0 0 25px #f885ff;
-
-        .btns {
-            display: flex;
-            justify-content: flex-end;
-        }
+        left: 27.5vw;
+        top: 20vh;
+        padding: 0.52vw;
+        border-radius: 0.78125vw 0 0 0.78125vw;
+        box-shadow: 0 0 1.302vw #f885ff;
+        background-image: url('../assets//img/home/bg_login_new.jpg');
+        background-size: 100% auto;
+        background-position: center center;
 
         p {
-            font-size: 2.5vh;
+            font-size: 4vh;
+            margin-top: 6.8vh;
             text-align: center;
+            color: #f885ff;
             font-weight: 600;
+            z-index: 999;
+        }
+    }
+
+    .login_form {
+        width: 20vw;
+        height: 40vh;
+        position: absolute;
+        left: 52.5vw;
+        top: 20vh;
+        padding: 0.52vw;
+        background: #fff;
+        border-radius: 0 0.78125vw 0.78125vw 0;
+        box-shadow: 0 0 1.302vw #f885ff;
+
+        /deep/.el-tabs__header {
+            margin-top: 10%;
+            margin-left: 38%;
+            // width: 30%;
+        }
+
+        /deep/.el-tabs__active-bar {
+            width: 2.5vw !important;
+            height: 3px;
+            margin-left: -0.3vw;
+        }
+
+        /deep/ .el-tabs__nav-wrap {
+            padding-left: 20%;
+            margin-left: -20%;
+        }
+
+        /deep/.el-tabs__nav-scroll {
+            padding-left: 20%;
+            margin-left: -20%;
+        }
+
+        /deep/ .el-tabs__nav-wrap::after {
+            position: static !important;
+        }
+
+        /deep/.el-input__icon {
+            margin-left: 2.1vw;
+        }
+
+        /deep/[class*=" el-icon-"],
+        [class^=el-icon-] {
+            font-size: 1.6vh;
+            color: #f885ff;
+        }
+
+        /deep/.el-tabs__item {
+            font-size: 1.8vh;
+        }
+
+        /deep/.el-form {
+            margin-top: 2vh;
+        }
+
+        /deep/.el-form-item {
+            margin-top: 2vh;
+        }
+
+        /deep/.el-input--prefix .el-input__inner {
+            padding-left: 1.5vw;
+            font-size: 1.2vh;
+        }
+
+        /deep/.el-input__inner {
+            margin-left: 10%;
+            width: 80%;
+            border-radius: 0.78125vw;
+        }
+
+        /deep/.el-button--primary {
+            margin-left: 10%;
+            font-size: 1.2vh;
+            width: 80%;
+            border-radius: 0.78125vw;
         }
     }
 
