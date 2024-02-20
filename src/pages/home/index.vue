@@ -107,16 +107,16 @@ export default {
     return {
       toolGroups: [
         [
-          { imgSrc: "../../assets/img/ch/zb.png", label: "数据看板" },
-          { imgSrc: "../../assets/img/ch/zb.png", label: "作物管理" }
+        { imgSrc: require("@/assets/img/ch/zb.png"), label: "数据看板" },
+        { imgSrc: require("@/assets/img/ch/zb.png"), label: "气象数据" },
         ],
         [
-          { imgSrc: "../../assets/img/ch/zb.png", label: "数据看板" },
-          { imgSrc: "../../assets/img/ch/zb.png", label: "农业管理" }
+        { imgSrc: require("@/assets/img/ch/zb.png"), label: "极端天气" },
+        { imgSrc: require("@/assets/img/ch/zb.png"), label: "故障诊断" },
         ],
         [
-          { imgSrc: "../../assets/img/ch/zb.png", label: "知识管理" },
-          { imgSrc: "../../assets/img/ch/zb.png", label: "异常管理" }
+        { imgSrc: require("@/assets/img/ch/zb.png"), label: "数据看板" },
+        { imgSrc: require("@/assets/img/ch/zb.png"), label: "数据看板" },
         ]
       ],
       value: new Date()
