@@ -9,7 +9,7 @@
                 prefix-icon="el-icon-lock" placeholder="请输入密码"></el-input></el-form-item>
         <el-form-item class="btns">
             <el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
+            <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
         </el-form-item>
     </el-form>
 </template>
@@ -81,8 +81,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.btns {
-    display: flex;
-    justify-content: flex-end;
+/deep/.el-button--primary {
+    margin-left: 10%;
+    font-size: 1.2vh;
+    width: 80%;
+    border-radius: 0.78125vw;
 }
 </style>
