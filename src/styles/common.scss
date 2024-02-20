@@ -1,0 +1,293 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  // 自定义数字字体
+  font-family: countFont;
+  src: url('../assets/font/DINPro-CondBold.woff.ttf')
+}
+
+// 缩小放大效果
+@-webkit-keyframes clickSmall {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes clickSmall {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.clickSmalls {
+  animation: clickSmall 300ms infinite;
+  -webkit-animation: clickSmall 300ms infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+// 发光效果
+@keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+.home_g {
+  position: absolute;
+  width: 100%;
+  top: -99%;
+  animation: fade 600ms infinite;
+  -webkit-animation: fade 2500ms infinite;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+}
+
+.main_g {
+  animation: fade 600ms infinite;
+  -webkit-animation: fade 2500ms infinite;
+  // text-align: center;
+  position: absolute;
+  // z-index: 99;
+  left: 2.5%;
+  top: -1%;
+  margin-top: -0.1%;
+  width: 100%;
+}
+
+.st_titles {
+  width: 100%;
+  height: 4vh;
+  line-height: 4vh;
+  text-align: center;
+  color: #fff;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.st_tops {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #5EC1F1;
+  font-weight: 600;
+  margin-top: 2%;
+}
+
+// 水波纹
+@keyframes warn {
+  0% {
+    transform: scale(0.3);
+    -webkit-transform: scale(0.3);
+    opacity: 0.0;
+  }
+
+  25% {
+    transform: scale(0.3);
+    -webkit-transform: scale(0.3);
+    opacity: 0.1;
+  }
+
+
+  50% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    opacity: 0.0;
+  }
+}
+
+@keyframes warn1 {
+  0% {
+    transform: scale(0.3);
+    -webkit-transform: scale(0.3);
+    opacity: 0.0;
+  }
+
+  25% {
+    transform: scale(0.3);
+    -webkit-transform: scale(0.3);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    opacity: 0.0;
+  }
+}
+
+// 水波纹的整体设置
+.waterpulse {
+  position: absolute;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  z-index: 9999;
+  opacity: 0;
+  -webkit-animation: warn 2s ease-out;
+  -moz-animation: warn 2s ease-out;
+  animation: warn 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/* 产生动画（向外扩散变大）的圆圈 第二个圆 */
+.waterpulse1 {
+  position: absolute;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  z-index: 9999;
+  opacity: 0;
+  -webkit-animation: warn1 2s ease-out;
+  -moz-animation: warn1 2s ease-out;
+  animation: warn1 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+// 统计内容样式
+.statistic-content {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  margin-bottom: 30px;
+
+  .send-chart-container {
+    width: 90%;
+    height: 100%;
+  }
+
+  .custom-legend {
+    position: absolute;
+    left: 30px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333333;
+    }
+  }
+}
+
+// 旋转动画
+@keyframes myfirst {
+  from {
+    transform: rotate(0)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes nmyfirst {
+  from {
+    transform: rotate(0)
+  }
+
+  to {
+    transform: rotate(-360deg)
+  }
+}
+
+// 从左侧划入
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// 从右侧划入
+@keyframes moveRightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
