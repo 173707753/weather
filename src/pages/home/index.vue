@@ -67,7 +67,7 @@
               <el-col :span="5">
                 <el-card class="shadow">
                   <div style="font-size: 46px; font-weight: 600;text-align: center; margin-bottom: 15px;">600</div>
-                  <el-progress :percentage="50"></el-progress>
+                  <el-progress :percentage="10"></el-progress>
                   <div class="text">故障数</div>
                 </el-card>
               </el-col>

@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="returnHome">
-      <router-link to="/home"><i class="el-icon-back"></i>返回</router-link>
+      <router-link to="/home"><i class="el-icon-back"></i><span style="margin-left: 0.2vh;">返回</span></router-link>
     </div>
     <div class="main_top">
       <div class="left">
@@ -327,7 +327,7 @@ export default {
       color: #fff;
       padding: 5px 10px;
       border-radius: 5px;
-      font-size: 1.8vh;
+      font-size: 2.2vh;
       transition: background-color 0.3s;
     }
 
