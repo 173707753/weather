@@ -4,20 +4,25 @@
       <el-header>
         <div
           style="display: flex; justify-content:space-between; align-items: center; padding: 0 10px; color: #fff; line-height: 10vh;">
-          <div style="font-size:30px; font-weight: 600; "><i class="el-icon-back"></i><span
-              style="margin-left: 15px;">全程监管</span></div>
-          <div @click="toRunLoginHome"><span style="margin-right: 10px;">欢迎您！监管员</span><span><el-avatar :size="size"
-                :src="circleUrl"></el-avatar></span></div>
+          <div style="font-size:30px; font-weight: 600; ">
+            <!-- <i class="el-icon-back"></i> -->
+            <span style="margin-left: 15px;">极端天气集成系统</span>
+          </div>
+          <div @click="toRunLoginHome"><span style="margin-right: 1vw;">欢迎您！监管员</span><span><el-avatar :size="size"
+                style="width: 4vh;height: 4vh;" :src="circleUrl"></el-avatar></span></div>
         </div>
       </el-header>
       <el-container>
         <el-aside>
           <div class="aside">
-            <div style="text-align: center; font-size: 18px ; margin-top: 2vh; margin-bottom: 4vh;">常用工具</div>
+            <div style="text-align: center; font-size: 2.4vh ;font-weight: bold; margin-top: 2vh; margin-bottom: 4vh;">
+              常用工具
+            </div>
             <div v-for="(group, index) in toolGroups" :key="index" class="tools">
               <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip" @click="toRunMain">
-                <img :src="item.imgSrc" alt="" style="width: 4vh; height: 4vh;">
-                <div>{{ item.label }}</div>
+                <img :src="item.imgSrc" alt=""
+                  style="width: 4vh; height: 4vh;padding: 1vh;border-radius: 1.5vh;background-color: white;">
+                <div style="font-size: 1.8vh ;font-weight: bold;">{{ item.label }}</div>
               </div>
             </div>
           </div>
@@ -29,36 +34,41 @@
                 <el-card class="shadow">
                   <div class="pic">
                     <div>
-                      <img src="" alt="" style="width: 10vh; height: 6vh; border-radius: 10px;">
-                      <div style="text-align: center;">土豆</div>
+                      <img src="@/assets/img/jiduan/装置1.png" alt=""
+                        style="width: 6vh; height: 6vh; border-radius: 1.5vh;">
+                      <div style="text-align: center;">装置1</div>
                     </div>
                     <div>
-                      <img src="" alt="" style="width: 10vh; height: 6vh; border-radius: 10px;">
-                      <div style="text-align: center;">土豆</div>
+                      <img src="@/assets/img/jiduan/装置2.png" alt=""
+                        style="width: 6vh; height: 6vh; border-radius: 1.5vh;">
+                      <div style="text-align: center;">装置2</div>
                     </div>
                     <div>
-                      <img src="" alt="" style="width: 10vh; height: 6vh; border-radius: 10px;">
-                      <div style="text-align: center;">土豆</div>
+                      <img src="@/assets/img/jiduan/装置3.png" alt=""
+                        style="width: 6vh; height: 6vh; border-radius: 1.5vh;">
+                      <div style="text-align: center;">装置3</div>
                     </div>
                     <div>
-                      <img src="" alt="" style="width: 10vh; height: 6vh; border-radius: 10px;">
-                      <div style="text-align: center;">土豆</div>
+                      <img src="@/assets/img/jiduan/装置4.png" alt=""
+                        style="width: 6vh; height: 6vh; border-radius: 1.5vh;">
+                      <div style="text-align: center;">装置4</div>
                     </div>
                     <div>
-                      <img src="" alt="" style="width: 10vh; height: 6vh; border-radius: 10px;">
-                      <div style="text-align: center;">土豆</div>
+                      <img src="@/assets/img/jiduan/装置5.png" alt=""
+                        style="width: 6vh; height: 6vh; border-radius: 1.5vh;">
+                      <div style="text-align: center;">装置5</div>
                     </div>
                   </div>
                   <div>
-                    <div class="text">在种产品</div>
+                    <div class="text">XX装置</div>
                   </div>
                 </el-card>
               </el-col>
               <el-col :span="5">
                 <el-card class="shadow">
-                  <div style="font-size: 46px; font-weight: 600;text-align: center; margin-bottom: 15px;">600km</div>
+                  <div style="font-size: 46px; font-weight: 600;text-align: center; margin-bottom: 15px;">600</div>
                   <el-progress :percentage="50"></el-progress>
-                  <div class="text">故障公里数</div>
+                  <div class="text">故障数</div>
                 </el-card>
               </el-col>
               <el-col :span="5">
@@ -71,7 +81,7 @@
             <el-row>
               <el-col :span="24">
                 <el-card class="box">
-                  <div><span><i class="el-icon-caret-right"></i></span>生产日历</div>
+                  <div><span><i class="el-icon-caret-right"></i></span>管理日历</div>
                   <div class="cal">
                     <div>
                       <div>视频</div>
@@ -107,19 +117,20 @@ export default {
     return {
       toolGroups: [
         [
-        { imgSrc: require("@/assets/img/ch/zb.png"), label: "数据看板" },
-        { imgSrc: require("@/assets/img/ch/zb.png"), label: "气象数据" },
+          { imgSrc: require("@/assets/img/jiduan/数据看板.png"), label: "数据看板" },
+          { imgSrc: require("@/assets/img/jiduan/气象数据.png"), label: "气象数据" },
         ],
         [
-        { imgSrc: require("@/assets/img/ch/zb.png"), label: "极端天气" },
-        { imgSrc: require("@/assets/img/ch/zb.png"), label: "故障诊断" },
+          { imgSrc: require("@/assets/img/jiduan/极端天气.png"), label: "极端天气" },
+          { imgSrc: require("@/assets/img/jiduan/故障诊断.png"), label: "故障诊断" },
         ],
         [
-        { imgSrc: require("@/assets/img/ch/zb.png"), label: "数据看板" },
-        { imgSrc: require("@/assets/img/ch/zb.png"), label: "数据看板" },
+          { imgSrc: require("@/assets/img/jiduan/数据看板 (1).png"), label: "数据看板" },
+          { imgSrc: require("@/assets/img/jiduan/数据看板 (2).png"), label: "数据看板" },
         ]
       ],
-      value: new Date()
+      value: new Date(),
+      circleUrl: require("@/assets/img/jiduan/管理员.png")
     }
   },
   created() {
@@ -179,7 +190,15 @@ export default {
   .tip {
     width: 10vh;
     height: 10vh;
+    padding-top: 1vh;
+    cursor: pointer;
     // background-color: blue;
+  }
+
+  .tip:hover {
+    background-color: #359afe;
+    border-radius: 2vh;
+    color: #fff;
   }
 
   .shadow {
@@ -199,6 +218,11 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    img {
+      background-color: skyblue;
+      padding: 0.5vh;
+    }
   }
 
   .text {
