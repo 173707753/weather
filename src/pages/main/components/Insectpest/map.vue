@@ -188,10 +188,10 @@ export default {
             type: "map",
             geoIndex: 0,
             data: [
-              {
-                name: "湖北省",
-                value: [114.34375, 30.49989],
-              }
+              // {
+              //   name: "湖北省",
+              //   value: [114.34375, 30.49989],
+              // }
             ],
             tooltip: {
               backgroundColor: 'rgba(0,0,0,0)',//背景颜色（此时为默认色）
@@ -216,7 +216,7 @@ export default {
             name: "片区名称",
             coordinateSystem: 'geo',
             data: [
-              { name: '洪山区', value: [114.34375, 30.49989] }
+              // { name: '洪山区', value: [114.34375, 30.49989] }
             ],
             symbolSize: 10,
             rippleEffect: {              //涟漪特效相关配置。
@@ -269,42 +269,42 @@ export default {
           //   },
           // },
           //火电
-          {
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            name: "三峡",
-            symbolSize: [28, 32],
-            data: [{
-              name: '宜昌',
-              value: [111.51378, 31.23989],
-              datas: [{ bianhao: 123, zhuangtai: '123' }]
-            }],
-            symbol: 'image://' + require('../../../../assets/img/map/火电.png'),
-            label: {
-              offsetCenter: ['50%', "-100%"],
-              emphasis: {
-                show: false
-              }
-            },
-            tooltip: {
-              show: true,
-              backgroundColor: 'rgba(0,0,0,0)',//背景颜色（此时为默认色）
-              borderRadius: 0,
-              borderWidth: 0,
-              formatter: function (params, ticket, callback) {
-                var res = ''
-                res = `<p style="color:#19D5FF;font-size:16px">${params.seriesName}</p>`
-                // '<p style="color:#19D5FF;margin-top:10px">运行状态：' + params.data.datas[0].zhuangtai + '</p>' +
-                // '<p style="color:#BBBBBB">设备编号:' + params.data.datas[0].bianhao + '</p>'
-                res = '<div style="border:1px solid #FF53AAD8;background-color:rgba(0,25,47,0.7);padding:5px 10px;">' + res + '</div>'
-                setTimeout(function () {
-                  // 仅为了模拟异步回调
-                  callback(ticket, res);
-                }, 1000)
-                return res
-              }
-            },
-          },
+          // {
+          //   type: 'scatter',
+          //   coordinateSystem: 'geo',
+          //   name: "三峡",
+          //   symbolSize: [28, 32],
+          //   data: [{
+          //     name: '宜昌',
+          //     value: [111.51378, 31.23989],
+          //     datas: [{ bianhao: 123, zhuangtai: '123' }]
+          //   }],
+          //   symbol: 'image://' + require('../../../../assets/img/map/火电.png'),
+          //   label: {
+          //     offsetCenter: ['50%', "-100%"],
+          //     emphasis: {
+          //       show: false
+          //     }
+          //   },
+          //   tooltip: {
+          //     show: true,
+          //     backgroundColor: 'rgba(0,0,0,0)',//背景颜色（此时为默认色）
+          //     borderRadius: 0,
+          //     borderWidth: 0,
+          //     formatter: function (params, ticket, callback) {
+          //       var res = ''
+          //       res = `<p style="color:#19D5FF;font-size:16px">${params.seriesName}</p>`
+          //       // '<p style="color:#19D5FF;margin-top:10px">运行状态：' + params.data.datas[0].zhuangtai + '</p>' +
+          //       // '<p style="color:#BBBBBB">设备编号:' + params.data.datas[0].bianhao + '</p>'
+          //       res = '<div style="border:1px solid #FF53AAD8;background-color:rgba(0,25,47,0.7);padding:5px 10px;">' + res + '</div>'
+          //       setTimeout(function () {
+          //         // 仅为了模拟异步回调
+          //         callback(ticket, res);
+          //       }, 1000)
+          //       return res
+          //     }
+          //   },
+          // },
         ],
       },
     }
@@ -600,8 +600,8 @@ export default {
   .chart-container {
     #mapChart {
       width: 100%;
-      margin-top: 10%;
-      transform: scale(1.34, 1.34);
+      margin-top: 6vh;
+      transform: scale(1.4, 1.4);
       z-index: 1;
     }
   }

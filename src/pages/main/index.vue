@@ -5,9 +5,9 @@
     </div>
     <div class="main_top">
       <div class="left">
-        <img width="100%" height="90%" src="../../assets/img/ch/顶部背景_new.png" alt="">
-        <img style="position: absolute;left: 5%;top: 29%;" width="90%" height="25%" src="../../assets/img/ch/测试.webp"
-          alt="">
+        <img width="100%" height="90%" src="../../assets/img/jiduan/title.png" alt="">
+        <!-- <img style="position: absolute;left: 5%;top: 29%;" width="90%" height="25%" src="../../assets/img/ch/测试.webp"
+          alt=""> -->
         <div class="alltitle">
           极 端 天 气 集 成 系 统
         </div>
@@ -564,7 +564,7 @@ export default {
   /* color: rgb(226 236 255 / 0%); */
   font-weight: bold;
   position: absolute;
-  top: 13%;
+  top: 30%;
   left: 40.5%;
   -webkit-text-stroke: 1px #413c47;
   -webkit-text-fill-color: #fff;
