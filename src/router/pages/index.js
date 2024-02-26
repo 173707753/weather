@@ -7,14 +7,14 @@ export default [
 	{
 		path: '/home',
 		name: '首页',
-		meta: { isTab: false },
+		meta: { isTab: false, auth: true },
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
 	},
 	{
 		path: '/main',
 		name: '数据详情',
-		meta: { isTab: false },
+		meta: { isTab: false, auth: true },
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/main/index.vue'),
 	},

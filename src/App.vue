@@ -16,22 +16,22 @@ export default {
 	created() { },
 	mounted() {
 		//窗口尺寸改变
-		window.addEventListener("resize", () => this.Refresh());
+		// window.addEventListener("resize", () => this.Refresh());
 	},
 	methods: {
-		Refresh() {
-			// 窗口大小改变，页面渲染，防抖
-			if (this.timer) {
-				clearTimeout(this.timer);
-			}
-			this.timer = setTimeout(() => {
-				this.$router.go(0);
-			}, 1500)
-		},
+		// Refresh() {
+		// 	// 窗口大小改变，页面渲染，防抖
+		// 	if (this.timer) {
+		// 		clearTimeout(this.timer);
+		// 	}
+		// 	this.timer = setTimeout(() => {
+		// 		this.$router.go(0);
+		// 	}, 1500)
+		// },
 	},
 	destroyed() {
 		// 销毁
-		window.removeEventListener("resize", this.Refresh());
+		// window.removeEventListener("resize", this.Refresh());
 	},
 
 }

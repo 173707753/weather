@@ -6,9 +6,9 @@
           style="display: flex; justify-content:space-between; align-items: center; padding: 0 10px; color: #fff; line-height: 10vh;">
           <div style="font-size:30px; font-weight: 600; ">
             <!-- <i class="el-icon-back"></i> -->
-            <span style="margin-left: 15px;">极端天气集成系统</span>
+            <span style="margin-left: 15px;">城市韧性电网</span>
           </div>
-          <div @click="toRunLoginHome"><span style="margin-right: 1vw;">欢迎您！监管员</span><span><el-avatar :size="size"
+          <div @click="toRunLoginHome"><span style="margin-right: 1vw;">欢迎您！监管员</span><span><el-avatar
                 style="width: 4vh;height: 4vh;" :src="circleUrl"></el-avatar></span></div>
         </div>
       </el-header>

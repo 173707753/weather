@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="bg_login_new">
-            <p>极端天气集成系统</p>
+            <p>城市韧性电网</p>
         </div>
         <div class="login_form">
             <el-tabs v-model="activeName" @tab-click="handleClick">
@@ -87,6 +87,7 @@ export default {
                         return false;
                     } else {
                         this.$message({ message: "登陆成功", type: "success" });
+                        this.setToken()
                         this.$router.push("/home");
                     }
                 } else {
@@ -94,6 +95,14 @@ export default {
                     return false;
                 }
             });
+        },
+        setToken() {
+            // 模拟登录验证成功后生成的 token
+            const token = "example_token";
+            // 计算令牌过期时间戳
+            const expiration = Date.now() + 1000 * 60 * 24;
+            localStorage.setItem('token', token);
+            localStorage.setItem('tokenExpiration', expiration);
         },
         resetLoginForm() {
             this.$refs["loginForm"].resetFields();
