@@ -9,6 +9,30 @@ export default [
 		name: '首页',
 		meta: { isTab: false },
 		component: () =>
+		import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
+		children: [
+			{
+				path: '',
+				redirect: () =>
+				import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
+			  },
+			{
+				path: '/kanban',
+				component: () =>
+				import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
+			},
+			{
+				path: '/dingwei',
+				component: () =>
+				import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
+			},
+		]
+	},
+	{
+		path: '/index',
+		name: '首页',
+		meta: { isTab: false },
+		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
 	},
 	{
