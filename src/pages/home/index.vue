@@ -78,7 +78,7 @@ export default {
       }
     },
     toRunLoginHome() {
-      this.$router.push("/login/kanban");
+      this.$router.push("/login");
     }
   }
 }
