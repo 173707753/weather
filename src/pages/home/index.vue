@@ -69,6 +69,7 @@ export default {
   },
   methods: {
     toRunMain(label) {
+      console.log(label, 'label');
       if (label === '数据看板') {
         this.$router.push("/kanban");
       } else if (label === '故障定位') {
@@ -78,9 +79,12 @@ export default {
       }
     },
     toRunLoginHome() {
-      this.$router.push("/login");
+      // this.$router.push("/login");
     }
-  }
+  },
+  mounted() {
+    this.$router.push("/kanban");
+  },
 }
 </script>
 
