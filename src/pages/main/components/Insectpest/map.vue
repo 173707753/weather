@@ -7,7 +7,7 @@
       <img class="map_bottomright" width="4%" height="auto" src="../../../../assets/img/map/4.png" alt=""> -->
       <div class="map_name_topleft">
         <div>
-          {{ mapChartOption.geo[0].map == 'china' ? '中国' : mapChartOption.geo[0].map }}
+          <!-- {{ mapChartOption.geo[0].map == 'china' ? '中国' : mapChartOption.geo[0].map }} -->
         </div>
       </div>
       <div @showSelect="false" class="chart-container" @contextmenu.prevent="show()">
@@ -188,10 +188,6 @@ export default {
             type: "map",
             geoIndex: 0,
             data: [
-              // {
-              //   name: "湖北省",
-              //   value: [114.34375, 30.49989],
-              // }
             ],
             tooltip: {
               backgroundColor: 'rgba(0,0,0,0)',//背景颜色（此时为默认色）
@@ -230,81 +226,6 @@ export default {
               },
             },
           },
-          //湖北 水电
-          //水电
-          // {
-          //   type: 'scatter',
-          //   coordinateSystem: 'geo',
-          //   name: "水电发电",
-          //   symbolSize: [28, 32],
-          //   data: [{
-          //     name: '随州',
-          //     value: [113.34, 31.55],
-          //     datas: [{ bianhao: 123, zhuangtai: '123' }]
-          //   }],
-          //   symbol: 'image://' + require('../../../../assets/img/map/水电.png'),
-          //   label: {
-          //     offsetCenter: ['50%', "-100%"],
-          //     emphasis: {
-          //       show: false
-          //     }
-          //   },
-          //   tooltip: {
-          //     show: true,
-          //     backgroundColor: 'rgba(0,0,0,0)',//背景颜色（此时为默认色）
-          //     borderRadius: 0,
-          //     borderWidth: 0,
-          //     formatter: function (params, ticket, callback) {
-          //       var res = ''
-          //       res = `<p style="color:#19D5FF;font-size:16px">${params.seriesName}</p>`
-          //       // '<p style="color:#19D5FF;margin-top:10px">运行状态：' + params.data.datas[0].zhuangtai + '</p>' +
-          //       // '<p style="color:#BBBBBB">设备编号:' + params.data.datas[0].bianhao + '</p>'
-          //       res = '<div style="border:1px solid #FF53AAD8;background-color:rgba(0,25,47,0.7);padding:5px 10px;">' + res + '</div>'
-          //       setTimeout(function () {
-          //         // 仅为了模拟异步回调
-          //         callback(ticket, res);
-          //       }, 1000)
-          //       return res
-          //     }
-          //   },
-          // },
-          //火电
-          // {
-          //   type: 'scatter',
-          //   coordinateSystem: 'geo',
-          //   name: "三峡",
-          //   symbolSize: [28, 32],
-          //   data: [{
-          //     name: '宜昌',
-          //     value: [111.51378, 31.23989],
-          //     datas: [{ bianhao: 123, zhuangtai: '123' }]
-          //   }],
-          //   symbol: 'image://' + require('../../../../assets/img/map/火电.png'),
-          //   label: {
-          //     offsetCenter: ['50%', "-100%"],
-          //     emphasis: {
-          //       show: false
-          //     }
-          //   },
-          //   tooltip: {
-          //     show: true,
-          //     backgroundColor: 'rgba(0,0,0,0)',//背景颜色（此时为默认色）
-          //     borderRadius: 0,
-          //     borderWidth: 0,
-          //     formatter: function (params, ticket, callback) {
-          //       var res = ''
-          //       res = `<p style="color:#19D5FF;font-size:16px">${params.seriesName}</p>`
-          //       // '<p style="color:#19D5FF;margin-top:10px">运行状态：' + params.data.datas[0].zhuangtai + '</p>' +
-          //       // '<p style="color:#BBBBBB">设备编号:' + params.data.datas[0].bianhao + '</p>'
-          //       res = '<div style="border:1px solid #FF53AAD8;background-color:rgba(0,25,47,0.7);padding:5px 10px;">' + res + '</div>'
-          //       setTimeout(function () {
-          //         // 仅为了模拟异步回调
-          //         callback(ticket, res);
-          //       }, 1000)
-          //       return res
-          //     }
-          //   },
-          // },
         ],
       },
     }

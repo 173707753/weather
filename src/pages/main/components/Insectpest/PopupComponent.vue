@@ -63,85 +63,13 @@ export default {
         };
     },
     created() {
-        // this.updatedTable();
-        // console.log(this.alldata, 'props');
     },
     methods: {
-        // //计算当前页
-        // handlePageChange(newPage) {
-        //     this.currentPage = newPage;
-        // },
-        // //每页多少条数据
-        // handlePageSizeChange(newSize) {
-        //     this.pageSize = newSize;
-        //     this.currentPage = 1;
-        // },
         closePopup() {
             this.$emit('close-popup'); // 发送关闭弹窗事件
         },
         updatedTable() {
-            // this.tableData = [];
-            // setTimeout(() => {
-            //     if (this.alldata[0].name === '火电发电') {
-            //         this.tableName = '电源数据'
-            //         for (let i = 0; i < this.time.length; i++) {
-            //             this.tableData.push({
-            //                 time: this.time[i],
-            //                 thermalPower: this.alldata[0].data[i],
-            //                 hydroelectric: this.alldata[1].data[i],
-            //                 pumpedStorage: this.alldata[2].data[i],
-            //                 windPower: this.alldata[3].data[i],
-            //                 photovoltaicPanel: this.alldata[4].data[i],
-            //             });
-            //         }
-            //     } else if (this.alldata[0].name === '断面数据') {
-            //         this.tableName = '断面数据'
-            //         for (let i = 0; i < this.time.length; i++) {
-            //             this.tableData.push({
-            //                 time: this.time[i],
-            //                 SectionData: this.alldata[0].data[i],
-            //             });
-            //         }
-            //     } else if (this.alldata[0].name === '储能数据') {
-            //         this.tableName = '储能数据'
-            //         for (let i = 0; i < this.time.length; i++) {
-            //             this.tableData.push({
-            //                 time: this.time[i],
-            //                 PumpingPower: this.alldata[0].data[i],
-            //                 // PumpedCapacity: this.alldata[1].data[i],
-            //             });
-            //         }
-            //     } else if (this.alldata[0].name === '负荷数据') {
-            //         this.tableName = '负荷数据'
-            //         for (let i = 0; i < this.time.length; i++) {
-            //             this.tableData.push({
-            //                 time: this.time[i],
-            //                 loadPower: this.alldata[0].data[i],
-            //             });
-            //         }
-            //     } else if (this.alldata[0].name === '储能 数据') {
-            //         this.tableName = '储能数据'
-            //         if (this.alldata.length === 3) {
-            //             for (let i = 0; i < this.time.length; i++) {
-            //                 this.tableData.push({
-            //                     time: this.time[i],
-            //                     PumpingPower: this.alldata[0].data[i],
-            //                     nanyangPumpedCapacity: this.alldata[1].data[i],
-            //                     nanyang1PumpedCapacity: this.alldata[2].data[i],
-            //                 });
-            //             }
-            //         } else {
-            //             for (let i = 0; i < this.time.length; i++) {
-            //                 this.tableData.push({
-            //                     time: this.time[i],
-            //                     PumpingPower: this.alldata[0].data[i],
-            //                     PumpedCapacity: this.alldata[1].data[i],
-            //                 });
-            //             }
-            //         }
 
-            //     }
-            // }, 400)
             setTimeout(() => {
                 this.tableName = ''
                 this.tableName = this.alldata[0].name

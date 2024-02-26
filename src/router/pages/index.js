@@ -10,12 +10,21 @@ export default [
 		meta: { isTab: false, auth: true },
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
+<<<<<<< HEAD
 			children: [
 			// {
 			// 	path: '',
 			// 	name: '看板',
 			// 	redirect: '/kanban',
 			// },
+=======
+		children: [
+			{
+				path: '',
+				name: '看板',
+				redirect: '/kanban',
+			},
+>>>>>>> 7144f21f0b06c696c3c3954ce1ca867aacc8a63d
 			{
 				path: '/kanban',
 				meta: { isTab: false, auth: true },
@@ -25,6 +34,7 @@ export default [
 			{
 				path: '/dingwei',
 				meta: { isTab: false, auth: true },
+<<<<<<< HEAD
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
 			},
@@ -45,6 +55,10 @@ export default [
 				meta: { isTab: false, auth: true },
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/yujing.vue'),
+=======
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
+>>>>>>> 7144f21f0b06c696c3c3954ce1ca867aacc8a63d
 			},
 			{
 				path: '/pingu',

@@ -8,8 +8,9 @@
             <!-- <i class="el-icon-back"></i> -->
             <span style="margin-left: 15px;">城市韧性电网</span>
           </div>
-          <div @click="toRunLoginHome"><span style="margin-right: 1vw;">欢迎您！监管员</span><span><el-avatar
-                style="width: 4vh;height: 4vh;" :src="circleUrl"></el-avatar></span></div>
+          <div @click="toRunLoginHome" style="cursor: pointer;"><span
+              style="margin-right: 1vw;">欢迎您！监管员</span><span><el-avatar style="width: 4vh;height: 4vh;"
+                :src="circleUrl"></el-avatar></span></div>
         </div>
       </el-header>
       <el-container>
@@ -69,6 +70,7 @@ export default {
   },
   methods: {
     toRunMain(label) {
+<<<<<<< HEAD
       console.log(label);
         this.selectedTool = label;
       switch (label) {
@@ -100,6 +102,15 @@ export default {
     // 如果label不匹配任何情况，可以添加默认处理逻辑
     break;
 }
+=======
+      if (label === '数据看板') {
+        this.$router.push("/kanban");
+      } else if (label === '故障定位') {
+        this.$router.push("/dingwei")
+      } else if (label === '数据大屏') {
+        this.$router.push("/main");
+      }
+>>>>>>> 7144f21f0b06c696c3c3954ce1ca867aacc8a63d
     },
     toRunLoginHome() {
       this.$router.push("/login");
