@@ -99,8 +99,8 @@ export default {
         setToken() {
             // 模拟登录验证成功后生成的 token
             const token = "example_token";
-            // 计算令牌过期时间戳
-            const expiration = Date.now() + 1000 * 60 * 24;
+            // 计算令牌过期时间戳 24小时
+            const expiration = Date.now() + 1000 * 60 * 60 * 24;
             localStorage.setItem('token', token);
             localStorage.setItem('tokenExpiration', expiration);
         },

@@ -1,46 +1,35 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="top" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <!-- <div class="st_titles">
-            ELM模型发电功率预测
-        </div>
         <div class="chart-container">
-            折线图容器
-            <div id="chart3" class="chart">
-
-            </div>
-        </div> -->
-        <PopupComponent v-if="isMouseOverBot" ref="popup3" @close-popup="hidePopup" :alldata="allData" />
+            <!-- 折线图容器 -->
+            <div id="chart3" class="chart"></div>
+        </div>
+        <!-- <PopupComponent v-if="isMouseOverBot" ref="popup3" @close-popup="hidePopup" :alldata="allData" /> -->
     </div>
 </template>
 <script>
 import * as echarts from 'echarts'
-import PopupComponent from '../PopupComponent.vue'
+// import PopupComponent from '../PopupComponent.vue'
 export default {
-    components: { PopupComponent },
+    components: {
+        // PopupComponent
+    },
     data() {
         return {
             loading: false,
             isMouseOverBot: false,
-            colorLine: ['#FF4528'],
-            tabindex: 0,
+            colorLine: ['#FFC22E', '#FF4528'],
             rightData: [
                 {
-                    name: '预测功率',
-                    data: []
+                    name: '折线图',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 7, 14, 25, 40, 59, 77, 98, 93, 118, 151, 158, 177, 175, 179, 230, 265, 262, 255, 274, 227, 308, 270, 290, 344, 355, 329, 354, 343, 330, 312, 322, 322, 335, 356, 326, 327, 312, 293, 258, 236, 209, 187, 164, 133, 109, 87, 67, 46, 31, 22, 14, 11, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
             ],
-            allData: [
-            ]
+            titleName: '折线图',
         };
     },
     created() {
-        this.$bus.$on('left3', () => {
-            this.changeEnergy(2)
-        })
-        this.$bus.$on('left4', () => {
-            this.changeNewenergy(2)
-        })
     },
     methods: {
         //Echarts数据渲染
@@ -60,6 +49,11 @@ export default {
         getOption(data = this.rightData) {
             return {
                 title: {
+                    text: this.titleName,
+                    textStyle: {
+                        color: '#fff',
+                    },
+                    left: '3%',
                 },
                 tooltip: {
                     trigger: 'axis'
@@ -73,8 +67,8 @@ export default {
                     left: 'center'
                 },
                 xAxis: {
-                    name: 't/min',
-                    data: Array.from({ length: 58 }, (_, i) => i),
+                    name: '',
+                    data: Array.from({ length: this.rightData[0].data.length + 1 }, (_, i) => i),
                     axisLabel: {
                         show: true,
                         interval: 9,
@@ -85,7 +79,7 @@ export default {
                 },
                 yAxis: [
                     {
-                        // name: 'P/MW',
+                        name: '',
                         type: 'value',
                         nameTextStyle: {
                             fontWeight: 'bold'
@@ -110,11 +104,11 @@ export default {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                             {
                                 offset: 0,
-                                color: '#FF4528'
+                                color: '#FFC22E'
                             },
                             {
                                 offset: 1,
-                                color: 'rgb(255, 154, 131)'
+                                color: '#bfc'
                             }
                         ])
                     },
@@ -174,18 +168,9 @@ export default {
         },
     },
     mounted() {
-        this.$bus.$on('rightdata_new', (data) => {
-            data.forEach((item) => {
-                // 预测功率
-                this.rightData[0].data.push(item.prediction_result3)
-            })
-            this.allData = []
-            this.allData = data
-            this.updateChart(this.rightData);
-        })
+        this.initChart()
     },
     beforeDestroy() {
-        this.$bus.$off('rightdata_new')
     }
 }
 </script>
@@ -195,25 +180,16 @@ export default {
     /* height: 100%; */
     z-index: 99999;
     height: 34vh;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
 }
 
-.st_titles {
-    background-size: 100% 107%;
-    background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/item_new.png');
-}
-
 .chart-container {
     position: relative;
-    height: calc(100% - 4vh);
-    background-size: 100% 107%;
+    height: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/chbg_new.png');
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     transform: translateX(-50%);
     animation-name: moveRightToLeft;
     animation-duration: 1.5s;
@@ -222,38 +198,6 @@ export default {
     .chart {
         width: 100%;
         height: 100%;
-    }
-
-    .button-container {
-        display: flex;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-
-    .energy-button {
-        padding: 1px 2px;
-        margin: 2px;
-        border-radius: 3px;
-        font-size: 14px;
-        cursor: pointer;
-        text-align: center;
-        font-weight: bold;
-        color: rgb(55, 209, 259);
-        transition: background-color 0.3s;
-
-        &.conventional {
-            background-color: rgba(84, 122, 194, .5);
-        }
-
-        &.new {
-            background-color: rgba(84, 122, 194, .5);
-        }
-
-        &:hover {
-            color: rgb(2, 188, 233);
-            background-color: rgb(14, 33, 72);
-        }
     }
 }
 

@@ -3,12 +3,10 @@
     <div class="Insectpest_t">
       <!-- 左边数据 -->
       <div class="Insectpest_t_left">
-        <!-- <div class="title_left">大数据管理</div> -->
         <div class="scrollable-content">
-          <left1 style="height: 32%;" />
-          <left2 style="margin-top: 2%;height: 32%;" />
-          <left3 style="margin-top: 2%;height: 32%;" />
-
+          <left1 style="height: 33%;" />
+          <left2 style="margin-top: 0.5%;height: 33%;" />
+          <left3 style="margin-top: 0.5%;height: 33%;" />
         </div>
       </div>
       <!-- 中间地图 -->
@@ -17,29 +15,13 @@
       </div>
       <!-- 右边数据 -->
       <div class="Insectpest_t_right">
-        <div class="box">
-          <!-- <div class="title_right">人工智能模型</div> -->
-          <!-- <div class="nowTime">{{ currentTime }}</div> -->
-        </div>
         <div class="content">
-          <chart1 style="height: 32%;" />
-          <chart2 style="margin-top: 2%;height: 32%;" />
-          <chart3 style="margin-top: 2%;height: 32%;" />
+          <chart1 style="height: 33%;" />
+          <chart2 style="margin-top: 0.5%;height: 33%;" />
+          <chart3 style="margin-top: 0.5%;height: 33%;" />
         </div>
       </div>
     </div>
-    <!-- 底部 -->
-    <!-- <div class="Insectpest_b">
-      <div class="Insectpest_b_left">
-        <left5 />
-      </div>
-      <div class="Insectpest_b_center">
-        <warningInformation />
-      </div>
-      <div class="Insectpest_b_right">
-        <greenServices />
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -51,15 +33,12 @@ import Map from './Insectpest/map'
 import chart1 from './Insectpest/rightDate/chart1'
 import chart2 from './Insectpest/rightDate/chart2'
 import chart3 from './Insectpest/rightDate/chart3'
-// import warningInformation from './Insectpest/warningInformation'
-
 export default {
   components: {
     Map,
     left1,
     left2,
     left3,
-    // warningInformation,
     chart1,
     chart2,
     chart3,
@@ -70,32 +49,12 @@ export default {
       role: 'watcher'
     }
   },
-  // created() {
-  //   this.role = 'production' // 生产者
-  // },
   created() {
     this.role = 'production' // 生产者
-    // 每隔一秒更新一次时间
-    this.timer = setInterval(() => {
-      this.currentTime = this.getCurrentTime();
-    }, 1000);
   },
   beforeDestroy() {
-    // 在组件销毁前清除定时器，防止内存泄漏
-    clearInterval(this.timer);
   },
   methods: {
-    getCurrentTime() {
-      const now = new Date();
-      const currentHour = now.getHours();
-      const currentMinute = now.getMinutes();
-      const currentSecond = now.getSeconds();
-      return `${this.padZero(currentHour)}:${this.padZero(currentMinute)}:${this.padZero(currentSecond)}`;
-    },
-    padZero(value) {
-      // 辅助函数用于确保数字始终有两位，例如：2 -> "02"
-      return value < 10 ? `0${value}` : value;
-    }
   }
 }
 </script>
@@ -116,20 +75,6 @@ export default {
     width: 22%;
     height: 87vh;
     position: relative;
-    margin-top: 1.3%;
-
-    .title_left {
-      position: absolute;
-      font-size: 1.25vw;
-      color: red;
-      font-weight: 600;
-      top: -8%;
-      left: 38%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 20vw;
-    }
 
     .scrollable-content {
       width: 100%;
@@ -158,11 +103,11 @@ export default {
   }
 
   .Insectpest_t_center {
-    margin-top: 2vh;
     width: 55%;
     height: 87vh;
     position: relative;
     overflow: hidden;
+    margin-top: 2vh;
   }
 
   .Insectpest_t_right {
@@ -170,49 +115,11 @@ export default {
     height: 87vh;
     position: relative;
 
-    .box {
-      display: flex;
-      width: 100%;
-      height: 40px;
-      padding-bottom: 10px;
-      color: #fff;
-      // background: pink;
-      font-size: 3vh;
-      // text-align: center;
-      // align-items: center;
-      align-items: flex-end;
-      justify-content: space-around;
-      position: absolute;
-      top: -30px;
-      right: 0;
-      font-weight: 600
-    }
-
-
-    .title_right {
-
-      font-size: 1.25vw;
-      color: red;
-      padding-left: 27%;
-      font-weight: 600 ma;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 20vw;
-    }
-
-    .nowTime {
-      color: #fff;
-      font-size: 2vh;
-      // align-items: end;
-    }
-
     .content {
       width: 100%;
       height: 100%;
       overflow-x: hidden;
       overflow-y: scroll;
-      margin-top: 26px;
     }
 
     /* 定义滚动条的样式 */

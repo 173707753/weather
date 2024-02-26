@@ -20,6 +20,7 @@ Router.beforeEach((to, from, next) => {
         if (token && now < tokenExpiration) {
             next();
         } else {
+            console.log('令牌已过期');
             // 令牌已过期，重定向到登录页面并清除令牌信息
             localStorage.removeItem('token');
             localStorage.removeItem('tokenExpiration');

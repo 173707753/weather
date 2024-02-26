@@ -1,38 +1,31 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="bot" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <!-- (随机三天晴天发电功率数据) -->
-        <!-- <div class="st_titles">
-            季节数据
-        </div> -->
         <!-- 渲染位置 -->
-        <!-- <div id="main2" style="height: calc(100% - 4vh);width: 100%;"></div> -->
-        <PopupComponent v-if="isMouseOverBot" ref="popup1" @close-popup="hidePopup" :alldata="allData" />
+        <div id="main2" style="height: 100%;width: 100%;"></div>
+        <!-- <PopupComponent v-if="isMouseOverBot" ref="popup1" @close-popup="hidePopup" :alldata="allData" /> -->
     </div>
 </template>
 
 <script>
 import * as echarts from 'echarts'
-import PopupComponent from '../PopupComponent.vue'
+// import PopupComponent from '../PopupComponent.vue'
 export default {
     components: {
-        PopupComponent,
+        // PopupComponent,
     },
     data() {
         return {
             loading: false,
-            isMouseOverBot: false,
             colorLine: ['#FFC22E', '#5EC2F2', '#FF4528', '#fff', '#bfc', '#dac', '#faa'],
-            tabindex: 0,
             leftData: [
                 {
-                    name: '随机数据',
-                    data: []
+                    name: '柱状图',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 7, 14, 25, 40, 59, 77, 98, 93, 118, 151, 158, 177, 175, 179, 230, 265, 262, 255, 274, 227, 308, 270, 290, 344, 355, 329, 354, 343, 330, 312, 322, 322, 335, 356, 326, 327, 312, 293, 258, 236, 209, 187, 164, 133, 109, 87, 67, 46, 31, 22, 14, 11, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
             ],
-            // 表格数据
-            allData: [
-            ],
+            titleName: '柱状图',
+            isMouseOverBot: false,
         };
     },
     created() {
@@ -61,7 +54,11 @@ export default {
         getOption(data = this.leftData) {
             return {
                 title: {
-                    // text: 'Bar Animation Delay',
+                    text: this.titleName,
+                    textStyle: {
+                        color: '#fff',
+                    },
+                    left: '3%',
                 },
                 legend: {
                     bottom: 0,
@@ -77,13 +74,11 @@ export default {
                     trigger: 'axis'
                 },
                 xAxis: {
-                    name: 't/h',
-                    // data: Array.from({ length: this.leftData[0].data.length + 1 }, (_, i) => i),
-                    data: [
-                        '6:00', '6:15', '6:30', '6:45', '7:00', '7:15', '7:30', '7:45', '8:00', '8:15', '8:30', '8:45', '9:00', '9:15', '9:30', '9:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45', '16:00', '16:15', '16:30', '16:45', '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45', '19:00', '19:15', '19:30',
-                        '6:00', '6:15', '6:30', '6:45', '7:00', '7:15', '7:30', '7:45', '8:00', '8:15', '8:30', '8:45', '9:00', '9:15', '9:30', '9:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45', '16:00', '16:15', '16:30', '16:45', '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45', '19:00', '19:15', '19:30',
-                        '6:00', '6:15', '6:30', '6:45', '7:00', '7:15', '7:30', '7:45', '8:00', '8:15', '8:30', '8:45', '9:00', '9:15', '9:30', '9:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45', '16:00', '16:15', '16:30', '16:45', '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45', '19:00', '19:15', '19:30'
-                    ],
+                    name: '',
+                    data: Array.from({ length: this.leftData[0].data.length + 1 }, (_, i) => i),
+                    // data: [
+                    //     '0:00', '0:15', '0:30', '0:45', '1:00', '1:15', '1:30', '1:45', '2:00', '2:15', '2:30', '2:45', '3:00', '3:15', '3:30', '3:45', '4:00', '4:15', '4:30', '4:45', '5:00', '5:15', '5:30', '5:45', '6:00', '6:15', '6:30', '6:45', '7:00', '7:15', '7:30', '7:45', '8:00', '8:15', '8:30', '8:45', '9:00', '9:15', '9:30', '9:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45', '16:00', '16:15', '16:30', '16:45', '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45', '19:00', '19:15', '19:30', '19:45', '20:00', '20:15', '20:30', '20:45', '21:00', '21:15', '21:30', '21:45', '22:00', '22:15', '22:30', '22:45', '23:00', '23:15', '23:30', '23:45'
+                    // ],
                     axisLabel: {
                         show: true,
                         interval: 13,
@@ -94,7 +89,7 @@ export default {
                 },
                 yAxis: [
                     {
-                        name: '发电功率(P/MW)',
+                        name: '',
                         type: 'value',
                         nameTextStyle: {
                             fontWeight: 'bold'
@@ -143,7 +138,6 @@ export default {
         //鼠标移入移出
         showPopup() {
             this.isMouseOverBot = false;
-            this.allData[0].name = '季节数据'
         },
         hidePopup() {
             this.isMouseOverBot = false; // 隐藏弹窗
@@ -174,65 +168,11 @@ export default {
                 this.hidePopup();
             }
         },
-        computeSeries(data) {
-            this.leftData[0].data = []
-            let length = data.length
-            if (data.length <= 3) { length = data.length }
-            else { length = 3 }
-            for (let i = 0; i < length; i++) {
-                data[i].forEach((item) => {
-                    this.leftData[0].data.push(item.power)
-                })
-            }
-            let sumdata = this.leftData[0].data
-            if (this.leftData[0].data.length < 100) {
-                this.leftData[0].data.push(...sumdata)
-                this.leftData[0].data.push(...sumdata)
-            }
-            this.allData = []
-            if (data.length === 1) {
-                for (let i = 0; i < data[0].length; i++) {
-                    this.allData.push({
-                        // datetimes: data[0][i].datetimes,
-                        datetiming: data[0][i].datetiming,
-                        power1: data[0][i].power,
-                        // power2: data[1][i].power,
-                        // power3: data[2][i].power,
-                    })
-                }
-            } else if (data.length === 2) {
-                for (let i = 0; i < this.alldata[0].length; i++) {
-                    this.allData.push({
-                        // datetimes: data[0][i].datetimes,
-                        datetiming: data[0][i].datetiming,
-                        power1: data[0][i].power,
-                        power2: data[1][i].power,
-                        // power3: data[2][i].power,
-                    })
-                }
-            } else {
-                for (let i = 0; i < data[0].length; i++) {
-                    this.allData.push({
-                        // datetimes: data[0][i].datetimes,
-                        datetiming: data[0][i].datetiming,
-                        power1: data[0][i].power,
-                        power2: data[1][i].power,
-                        power3: data[2][i].power,
-                    })
-                }
-            }
-            // console.log(this.allData, 'this.allData2222');
-            this.updateChart(this.leftData);
-        },
     },
     mounted() {
-        this.$bus.$on('left2Data', (data) => {
-            this.computeSeries(data);
-
-        })
+        this.initChart()
     },
     beforeDestroy() {
-        this.$bus.$off('left2Data');
     }
 
 }
@@ -244,26 +184,17 @@ export default {
     /* height: 100%; */
     z-index: 99999;
     height: 34vh;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
 
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
     #main2 {
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        background-image: url('../../../../../assets/img/ch/chbg_new.png');
+        background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
         transform: translateX(-50%);
         animation-name: moveRight;
         animation-duration: 1.5s;
         animation-fill-mode: forwards;
     }
-}
-
-.st_titles {
-    background-size: 100% 107%;
-    background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/item_new.png');
 }
 </style>

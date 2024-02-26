@@ -1,48 +1,36 @@
 <template>
     <div v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.6)" class="bot" @mouseenter="showPopup"
         @mouseleave="onBotMouseLeave">
-        <!-- <div class="st_titles">
-            GA数据
-        </div> -->
-        <!-- <div class="chart-container"> -->
-        <!-- 折线图容器 -->
-        <!-- <div id="main3" class="chart"></div> -->
-        <!-- 按钮浮动在折线图上 -->
-        <!-- <div class="button-container">
-                <div @click="changeEnergy(1)" class="energy-button conventional">抽蓄电量</div>
-                <div @click="changeNewenergy(1)" class="energy-button new">发电功率</div>
-            </div> -->
-        <!-- </div> -->
-        <PopupComponent v-if="isMouseOverBot" ref="popup2" @close-popup="hidePopup" :alldata="allData" />
+        <div class="chart-container">
+            <!-- 折线图容器 -->
+            <div id="main3" class="chart"></div>
+        </div>
+        <!-- <PopupComponent v-if="isMouseOverBot" ref="popup2" @close-popup="hidePopup" :alldata="allData" /> -->
     </div>
 </template>
 
 <script>
 import * as echarts from 'echarts'
-import PopupComponent from '../PopupComponent.vue'
+// import PopupComponent from '../PopupComponent.vue'
 export default {
     components: {
-        PopupComponent,
+        // PopupComponent,
     },
     data() {
         return {
             loading: false,
-            isMouseOverBot: false,
-            colorLine: ['#FFC22E', '#5EC2F2', '#FF4528', '#fff', '#bfc', '#dac', '#faa'],
-            tabindex: 0,
+            colorLine: ['#FFC22E', '#5EC2F2', '', '#fff', '#bfc', '#dac', '#faa'],
             leftData: [
+                {
+                    name: '折线图',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 7, 14, 25, 40, 59, 77, 98, 93, 118, 151, 158, 177, 175, 179, 230, 265, 262, 255, 274, 227, 308, 270, 290, 344, 355, 329, 354, 343, 330, 312, 322, 322, 335, 356, 326, 327, 312, 293, 258, 236, 209, 187, 164, 133, 109, 87, 67, 46, 31, 22, 14, 11, 9, 9, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
             ],
-            allData: [
-            ],
+            titleName: '折线图',
+            isMouseOverBot: false,
         };
     },
     created() {
-        this.$bus.$on('chart3', () => {
-            this.changeEnergy(2)
-        })
-        this.$bus.$on('chart4', () => {
-            this.changeNewenergy(2)
-        })
     },
     methods: {
         //Echarts数据渲染
@@ -51,16 +39,6 @@ export default {
             this.chartInstance = echarts.init(chartDom);
             var option = this.getOption();
             this.chartInstance.setOption(option);
-        },
-        changeEnergy(flag) {
-            this.updateChart(this.conventionalData);
-            if (flag === 2) return
-            this.$bus.$emit('left3')
-        },
-        changeNewenergy(flag) {
-            this.updateChart(this.newData);
-            if (flag === 2) return
-            this.$bus.$emit('left4')
         },
         updateChart(data) {
             if (this.chartInstance) {
@@ -72,6 +50,11 @@ export default {
         getOption(data = this.leftData) {
             return {
                 title: {
+                    text: this.titleName,
+                    textStyle: {
+                        color: '#fff',
+                    },
+                    left: '3%',
                 },
                 tooltip: {
                     trigger: 'axis'
@@ -85,8 +68,8 @@ export default {
                     left: 'center'
                 },
                 xAxis: {
-                    name: 't/min',
-                    data: Array.from({ length: 58 }, (_, i) => i),
+                    name: '',
+                    data: Array.from({ length: this.leftData[0].data.length + 1 }, (_, i) => i),
                     axisLabel: {
                         show: true,
                         interval: 9,
@@ -97,7 +80,7 @@ export default {
                 },
                 yAxis: [
                     {
-                        // name: 'P/MW',
+                        name: '',
                         type: 'value',
                         nameTextStyle: {
                             fontWeight: 'bold'
@@ -118,7 +101,18 @@ export default {
                     type: 'line',
                     data: item.data,
                     // 是否有阴影面积
-                    // areaStyle: {},
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            {
+                                offset: 0,
+                                color: '#FFC22E'
+                            },
+                            {
+                                offset: 1,
+                                color: '#bfc'
+                            }
+                        ])
+                    },
                     showSymbol: true,//是否默认展示圆点
                     symbol: 'circle',     //设定为实心点
                     symbolSize: 0,
@@ -142,7 +136,6 @@ export default {
         //鼠标移入移出
         showPopup() {
             this.isMouseOverBot = false;
-            this.allData[0].name = 'GA数据'
         },
         hidePopup() {
             this.isMouseOverBot = false; // 隐藏弹窗
@@ -176,18 +169,9 @@ export default {
     },
 
     mounted() {
-        // 接收初始数据
-        this.$bus.$on('leftdata_new', (data) => {
-            this.leftData = []
-            this.allData = []
-            // console.log(data, 'data');
-            this.leftData = data.leftData;
-            this.allData = data.allData
-            this.updateChart(this.leftData);
-        })
+        this.initChart()
     },
     beforeDestroy() {
-        this.$bus.$off('leftdata_new')
     }
 
 }
@@ -201,23 +185,14 @@ export default {
     height: 34vh;
     /* padding-bottom: 5.5vh; */
     /* height: 28vh; */
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
-}
-
-.st_titles {
-    background-size: 100% 107%;
-    background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/item_new.png');
 }
 
 .chart-container {
     position: relative;
-    height: calc(100% - 4vh);
-    background-size: 100% 107%;
+    height: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url('../../../../../assets/img/ch/chbg_new.png');
+    background-image: url('../../../../../assets/img/jiduan/content_kuang.png');
     transform: translateX(-50%);
     animation-name: moveRight;
     animation-duration: 1.5s;
@@ -227,41 +202,5 @@ export default {
         width: 100%;
         height: 100%;
     }
-
-    .button-container {
-        display: flex;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-
-    .energy-button {
-        padding: 1px 2px;
-        margin: 2px;
-        border-radius: 3px;
-        font-size: 14px;
-        cursor: pointer;
-        text-align: center;
-        font-weight: bold;
-        color: rgb(55, 209, 259);
-        transition: background-color 0.3s;
-
-        &.conventional {
-            background-color: rgba(84, 122, 194, .5);
-        }
-
-        &.new {
-            background-color: rgba(84, 122, 194, .5);
-        }
-
-        &:hover {
-            color: rgb(2, 188, 233);
-            background-color: rgb(14, 33, 72);
-        }
-    }
 }
-
-/* .chartclass{
-
-} */
 </style>

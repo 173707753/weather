@@ -9,31 +9,26 @@ export default [
 		name: '首页',
 		meta: { isTab: false, auth: true },
 		component: () =>
-		import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
+			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
 		children: [
 			{
 				path: '',
-				redirect: () =>
-				import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
-			  },
+				name: '看板',
+				redirect: '/kanban',
+			},
 			{
 				path: '/kanban',
+				meta: { isTab: false, auth: true },
 				component: () =>
-				import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
+					import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
 			},
 			{
 				path: '/dingwei',
+				meta: { isTab: false, auth: true },
 				component: () =>
-				import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
+					import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
 			},
 		]
-	},
-	{
-		path: '/index',
-		name: '首页',
-		meta: { isTab: false },
-		component: () =>
-			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
 	},
 	{
 		path: '/main',
