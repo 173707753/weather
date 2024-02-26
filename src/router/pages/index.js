@@ -9,31 +9,58 @@ export default [
 		name: '首页',
 		meta: { isTab: false, auth: true },
 		component: () =>
-		import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
-		children: [
-			{
-				path: '',
-				redirect: () =>
-				import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
-			  },
+			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
+			children: [
+			// {
+			// 	path: '',
+			// 	name: '看板',
+			// 	redirect: '/kanban',
+			// },
 			{
 				path: '/kanban',
+				meta: { isTab: false, auth: true },
 				component: () =>
-				import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
+					import(/* webpackChunkName: "pages" */ '@/pages/home/kanban.vue'),
 			},
 			{
 				path: '/dingwei',
+				meta: { isTab: false, auth: true },
 				component: () =>
-				import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
+					import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
 			},
+			{
+				path: '/zhenduan',
+				meta: { isTab: false, auth: true },
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/zhenduan.vue'),
+			},
+			{
+				path: '/tuopu',
+				meta: { isTab: false, auth: true },
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/tuopu.vue'),
+			},
+			{
+				path: '/yujing',
+				meta: { isTab: false, auth: true },
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/yujing.vue'),
+			},
+			{
+				path: '/pingu',
+				meta: { isTab: false, auth: true },
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/pingu.vue'),
+			},
+			{
+				path: '/shebei',
+				meta: { isTab: false, auth: true },
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/shebei.vue'),
+			},
+			
+			
 		]
-	},
-	{
-		path: '/index',
-		name: '首页',
-		meta: { isTab: false },
-		component: () =>
-			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
 	},
 	{
 		path: '/main',
@@ -43,11 +70,11 @@ export default [
 			import(/* webpackChunkName: "pages" */ '@/pages/main/index.vue'),
 	},
 	// {
-	// 	path: '/stark',
-	// 	name: '指标',
-	// 	meta: { isTab: false },
-	// 	component: () =>
-	// 		import(/* webpackChunkName: "pages" */ '@/pages/stark/index.vue'),
+	//  path: '/stark',
+	//  name: '指标',
+	//  meta: { isTab: false },
+	//  component: () =>
+	//      import(/* webpackChunkName: "pages" */ '@/pages/stark/index.vue'),
 	// },
 	{
 		path: '/login',

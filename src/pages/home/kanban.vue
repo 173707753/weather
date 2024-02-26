@@ -16,6 +16,7 @@
                     </div>
                     <div>
                       <img src="@/assets/img/jiduan/装置3.png" alt=""
+                      
                         style="width: 6vh; height: 6vh; border-radius: 1.5vh;">
                       <div style="text-align: center;">装置3</div>
                     </div>

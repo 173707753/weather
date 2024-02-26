@@ -19,7 +19,7 @@
               常用工具
             </div>
             <div v-for="(group, index) in toolGroups" :key="index" class="tools">
-              <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip" @click="toRunMain(item.label)">
+              <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip" :class="{ 'tip': true, 'tipBackground': item.label === selectedTool,'selected': item.label === selectedTool }" @click="toRunMain(item.label)">
                 <img :src="item.imgSrc" alt=""
                   style="width: 4vh; height: 4vh;padding: 1vh;border-radius: 1.5vh;background-color: white;">
                 <div style="font-size: 1.8vh ;font-weight: bold;">{{ item.label }}</div>
@@ -60,7 +60,8 @@ export default {
         ]
       ],
       value: new Date(),
-      circleUrl: require("@/assets/img/jiduan/管理员.png")
+      circleUrl: require("@/assets/img/jiduan/管理员.png"),
+      selectedTool: '数据看板',
     }
   },
   created() {
@@ -68,13 +69,37 @@ export default {
   },
   methods: {
     toRunMain(label) {
-      if (label === '数据看板') {
-        this.$router.push("/kanban");
-      } else if (label === '故障定位') {
-        this.$router.push("/dingwei")
-      }else if (label === '数据大屏') {
-      this.$router.push("/main");
-      }
+      console.log(label);
+        this.selectedTool = label;
+      switch (label) {
+  case '数据看板':
+    this.$router.push("/kanban");
+    break;
+  case '故障定位':
+    this.$router.push("/dingwei");
+    break;
+  case '故障诊断':
+    this.$router.push("/zhenduan");
+    break;
+  case '网络拓扑':
+    this.$router.push("/tuopu");
+    break;
+  case '风险预警':
+    this.$router.push("/yujing");
+    break;
+  case '韧性评估':
+    this.$router.push("/pingu");
+    break;
+  case '设备监管':
+    this.$router.push("/shebei");
+    break;
+  case '数据大屏':
+    this.$router.push("/main");
+    break;
+  default:
+    // 如果label不匹配任何情况，可以添加默认处理逻辑
+    break;
+}
     },
     toRunLoginHome() {
       this.$router.push("/login");
@@ -86,7 +111,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   /deep/ .el-header {
-    background-color: rgb(14, 110, 219);
+    background-color: #496eee;
     color: #333;
     width: 100vw;
     height: 10vh !important;
@@ -110,8 +135,8 @@ export default {
 
   .aside {
     height: 86vh;
-    background-color: rgb(181, 209, 233);
-    border: 1px solid rgb(17, 124, 196);
+    background-color: #ebf0fd;
+    border: 2px solid rgb(153, 196, 248);
     border-radius: 8px;
   }
 
@@ -131,10 +156,15 @@ export default {
     // background-color: blue;
   }
 
-  .tip:hover {
-    background-color: #359afe;
+  .tipBackground {
+    background-color: #5588f3;
     border-radius: 2vh;
     color: #fff;
   }
+.selected {
+  background-color: #5588f3;
+  border-radius: 2vh;
+  color: #fff;
+}
 }
 </style>
