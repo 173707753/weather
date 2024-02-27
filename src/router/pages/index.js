@@ -10,7 +10,11 @@ export default [
 		meta: { isTab: false, auth: true },
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
+<<<<<<< HEAD
 			children: [
+=======
+		children: [
+>>>>>>> 2a8a1cd90547f6c34efdfc312c3ad97ce981847e
 			// {
 			// 	path: '',
 			// 	name: '看板',
@@ -27,6 +31,7 @@ export default [
 				meta: { isTab: false, auth: true },
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
+<<<<<<< HEAD
 			},
 			{
 				path: '/zhenduan',
@@ -45,6 +50,8 @@ export default [
 				meta: { isTab: false, auth: true },
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/yujing.vue'),
+=======
+>>>>>>> 2a8a1cd90547f6c34efdfc312c3ad97ce981847e
 			},
 			{
 				path: '/pingu',
@@ -58,8 +65,8 @@ export default [
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/shebei.vue'),
 			},
-			
-			
+
+
 		]
 	},
 	{
@@ -69,13 +76,6 @@ export default [
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/main/index.vue'),
 	},
-	// {
-	//  path: '/stark',
-	//  name: '指标',
-	//  meta: { isTab: false },
-	//  component: () =>
-	//      import(/* webpackChunkName: "pages" */ '@/pages/stark/index.vue'),
-	// },
 	{
 		path: '/login',
 		name: 'Login',

@@ -20,7 +20,9 @@
               常用工具
             </div>
             <div v-for="(group, index) in toolGroups" :key="index" class="tools">
-              <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip" :class="{ 'tip': true, 'tipBackground': item.label === selectedTool,'selected': item.label === selectedTool }" @click="toRunMain(item.label)">
+              <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip"
+                :class="{ 'tip': true, 'tipBackground': item.label === selectedTool, 'selected': item.label === selectedTool }"
+                @click="toRunMain(item.label)">
                 <img :src="item.imgSrc" alt=""
                   style="width: 4vh; height: 4vh;padding: 1vh;border-radius: 1.5vh;background-color: white;">
                 <div style="font-size: 1.8vh ;font-weight: bold;">{{ item.label }}</div>
@@ -71,41 +73,44 @@ export default {
   methods: {
     toRunMain(label) {
       console.log(label);
-        this.selectedTool = label;
+      this.selectedTool = label;
       switch (label) {
-  case '数据看板':
-    this.$router.push("/kanban");
-    break;
-  case '故障定位':
-    this.$router.push("/dingwei");
-    break;
-  case '故障诊断':
-    this.$router.push("/zhenduan");
-    break;
-  case '网络拓扑':
-    this.$router.push("/tuopu");
-    break;
-  case '风险预警':
-    this.$router.push("/yujing");
-    break;
-  case '韧性评估':
-    this.$router.push("/pingu");
-    break;
-  case '设备监管':
-    this.$router.push("/shebei");
-    break;
-  case '数据大屏':
-    this.$router.push("/main");
-    break;
-  default:
-    // 如果label不匹配任何情况，可以添加默认处理逻辑
-    break;
-}
+        case '数据看板':
+          this.$router.push("/kanban");
+          break;
+        case '故障定位':
+          this.$router.push("/dingwei");
+          break;
+        case '故障诊断':
+          this.$router.push("/zhenduan");
+          break;
+        case '网络拓扑':
+          this.$router.push("/tuopu");
+          break;
+        case '风险预警':
+          this.$router.push("/yujing");
+          break;
+        case '韧性评估':
+          this.$router.push("/pingu");
+          break;
+        case '设备监管':
+          this.$router.push("/shebei");
+          break;
+        case '数据大屏':
+          this.$router.push("/main");
+          break;
+        default:
+          // 如果label不匹配任何情况，可以添加默认处理逻辑
+          break;
+      }
     },
     toRunLoginHome() {
       this.$router.push("/login");
     }
-  }
+  },
+  mounted() {
+    this.$router.push("/kanban");
+  },
 }
 </script>
 
@@ -162,10 +167,10 @@ export default {
     border-radius: 2vh;
     color: #fff;
   }
-.selected {
-  background-color: #5588f3;
-  border-radius: 2vh;
-  color: #fff;
-}
-}
-</style>
+
+  .selected {
+    background-color: #5588f3;
+    border-radius: 2vh;
+    color: #fff;
+  }
+}</style>
