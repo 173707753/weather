@@ -80,7 +80,7 @@ export default {
     }
   },
   mounted() {
-    this.$router.push("/kanban");
+    this.toRunMain(this.selectedTool)
   },
 }
 </script>
@@ -149,4 +149,5 @@ export default {
     border-radius: 2vh;
     color: #fff;
   }
-}</style>
+}
+</style>
