@@ -10,11 +10,7 @@ export default [
 		meta: { isTab: false, auth: true },
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
-<<<<<<< HEAD
 			children: [
-=======
-		children: [
->>>>>>> 2a8a1cd90547f6c34efdfc312c3ad97ce981847e
 			// {
 			// 	path: '',
 			// 	name: '看板',
@@ -31,7 +27,6 @@ export default [
 				meta: { isTab: false, auth: true },
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/dingwei.vue'),
-<<<<<<< HEAD
 			},
 			{
 				path: '/zhenduan',
@@ -50,8 +45,6 @@ export default [
 				meta: { isTab: false, auth: true },
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/yujing.vue'),
-=======
->>>>>>> 2a8a1cd90547f6c34efdfc312c3ad97ce981847e
 			},
 			{
 				path: '/pingu',
