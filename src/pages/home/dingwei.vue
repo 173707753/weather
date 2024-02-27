@@ -1,9 +1,9 @@
 
 <template>
     <div class="contain">
-        <el-tabs type="border-card" style="height: 86vh;">
+        <el-tabs type="border-card" style="height: 85vh;">
             <el-tab-pane label="故障分类">
-                <el-table :data="tableData" border style="width: 100%; height: 250;">
+                <el-table :data="tableData" border style="width: 100%; height: 250;" max-height="720">
                     <el-table-column prop="address" label="地点" width="200">
                     </el-table-column>
                     <el-table-column prop="date" label="日期" width="200">
@@ -139,7 +139,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 </style>
 
 
