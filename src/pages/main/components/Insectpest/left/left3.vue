@@ -169,7 +169,7 @@ export default {
     },
 
     mounted() {
-        this.initChart()
+        this.updateChart(this.leftData)
     },
     beforeDestroy() {
     }

@@ -140,7 +140,7 @@ export default {
         },
     },
     mounted() {
-        this.initChart()
+        this.updateChart(this.rightData)
     },
     beforeDestroy() {
     }

@@ -132,7 +132,6 @@ export default {
         //鼠标移入移出
         showPopup() {
             this.isMouseOverBot = false;
-            this.allData[0].name = 'GA+ELM模型发电功率预测'
         },
         hidePopup() {
             this.isMouseOverBot = false;
@@ -165,7 +164,7 @@ export default {
         },
     },
     mounted() {
-        this.initChart()
+        this.updateChart(this.rightData)
     },
     beforeDestroy() {
     }

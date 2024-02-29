@@ -6,7 +6,7 @@
         <div class="login_form">
             <el-tabs v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="登录" name="first">
-                    <el-form :model="loginForm" :size="mini" :rules="rules" ref="loginForm" @submit.native.prevent>
+                    <el-form :model="loginForm" :rules="rules" ref="loginForm" @submit.native.prevent>
                         <el-form-item label="" prop="account" class="elItem">
                             <el-input type="text" autocomplete="off" v-model="loginForm.account"
                                 prefix-icon="el-icon-user-solid" placeholder="请输入用户名"></el-input>
