@@ -521,8 +521,8 @@ export default {
   .chart-container {
     #mapChart {
       width: 100%;
-      margin-top: 6vh;
-      transform: scale(1.4, 1.4);
+      // margin-top: 8vh;
+      transform: scale(1.2, 1.2);
       z-index: 1;
     }
   }

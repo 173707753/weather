@@ -203,25 +203,29 @@ export default {
             margin-top: 2vh;
         }
 
+
         /deep/.el-form-item {
-            margin-top: 2vh;
+            margin-top: 6%;
+            margin-bottom: 0vh;
         }
 
         /deep/.el-input--prefix .el-input__inner {
             padding-left: 1.5vw;
-            font-size: 1.2vh;
+            font-size: 1.4vh;
         }
 
         /deep/.el-input__inner {
             margin-left: 10%;
             width: 80%;
+            height: 4vh;
             border-radius: 0.78125vw;
         }
 
         /deep/.el-button--primary {
             margin-left: 10%;
-            font-size: 1.2vh;
+            font-size: 1.4vh;
             width: 80%;
+            height: 4vh;
             border-radius: 0.78125vw;
         }
     }

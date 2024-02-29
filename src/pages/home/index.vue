@@ -43,28 +43,28 @@ export default {
     return {
       toolGroups: [
         [
-          { imgSrc: require("@/assets/img/jiduan/kanban.png"), label: "数据看板", path:'/kanban'},
-          { imgSrc: require("@/assets/img/jiduan/dingwei.png"), label: "故障定位", path:'/dingwei' },
+          { imgSrc: require("@/assets/img/jiduan/kanban.png"), label: "数据看板", path: '/kanban' },
+          { imgSrc: require("@/assets/img/jiduan/dingwei.png"), label: "故障定位", path: '/dingwei' },
 
         ],
         [
-          { imgSrc: require("@/assets/img/jiduan/zhenduan.png"), label: "故障诊断", path:'/zhenduan' },
-          { imgSrc: require("@/assets/img/jiduan/tuopu.png"), label: "网络拓扑" , path:'/tuopu'},
+          { imgSrc: require("@/assets/img/jiduan/zhenduan.png"), label: "故障诊断", path: '/zhenduan' },
+          { imgSrc: require("@/assets/img/jiduan/tuopu.png"), label: "网络拓扑", path: '/tuopu' },
 
         ],
         [
-          { imgSrc: require("@/assets/img/jiduan/yujing.png"), label: "风险预警" , path:'/yujing'},
-          { imgSrc: require("@/assets/img/jiduan/pinggu.png"), label: "韧性评估" , path:'/pingu'},
+          { imgSrc: require("@/assets/img/jiduan/yujing.png"), label: "风险预警", path: '/yujing' },
+          { imgSrc: require("@/assets/img/jiduan/pinggu.png"), label: "韧性评估", path: '/pingu' },
 
         ],
         [
-          { imgSrc: require("@/assets/img/jiduan/shebei.png"), label: "设备监管" , path:'/shebei'},
-          { imgSrc: require("@/assets/img/jiduan/daping.png"), label: "数据大屏", path:'/main' },
+          { imgSrc: require("@/assets/img/jiduan/shebei.png"), label: "设备监管", path: '/shebei' },
+          { imgSrc: require("@/assets/img/jiduan/daping.png"), label: "数据大屏", path: '/main' },
         ]
       ],
       value: new Date(),
       circleUrl: require("@/assets/img/jiduan/管理员.png"),
-      selectedTool: '数据看板',
+      selectedTool: { imgSrc: require("@/assets/img/jiduan/kanban.png"), label: "数据看板", path: '/kanban' },
     }
   },
   created() {
@@ -132,12 +132,13 @@ export default {
     cursor: pointer;
     // background-color: blue;
   }
+
   .tip:hover {
     background-color: #5588f3;
     border-radius: 2vh;
     color: #fff;
-}
- 
+  }
+
   .tipBackground {
     background-color: #5588f3;
     border-radius: 2vh;
