@@ -1,4 +1,3 @@
-
 <template>
     <div class="contain">
         <div class="contain_title">故障检测

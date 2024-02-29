@@ -1,5 +1,5 @@
 <template>
-    <div id="topologyChart" style="width: 60vw; height: 40vh;margin-left: 10vw;">
+    <div id="topologyChart" style="width: 60vw; height: 80vh;margin-left: 10vw;">
     </div>
 </template>
 
@@ -63,9 +63,11 @@ export default {
                     bottom: '0'
                 },
                 tooltip: {},
-                legend: [{
-                    data: ['Category 0', 'Category 1']
-                }],
+                legend: [
+                    {
+                        data: ['Category 0', 'Category 1']
+                    }
+                ],
                 animationDurationUpdate: 1500,
                 animationEasingUpdate: 'quinticInOut',
                 series: [
@@ -79,11 +81,14 @@ export default {
                         },
                         data: nodeData,
                         links: edgeData,
-                        categories: [{
-                            name: 'Category 0'
-                        }, {
-                            name: 'Category 1'
-                        }]
+                        categories: [
+                            {
+                                name: 'Category 0'
+                            },
+                            {
+                                name: 'Category 1'
+                            }
+                        ]
                     }
                 ]
             }

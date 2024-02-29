@@ -1,4 +1,3 @@
-
 <template>
     <div class="contain">
         <el-tabs type="border-card" style="height: 85vh;">
