@@ -135,7 +135,7 @@ export default {
     .map_title {
       width: 80%;
       height: 12vh;
-      margin-left: 10%;
+      margin-left: 10.95%;
       // border: 10px solid red;
       display: flex;
       justify-content: space-around;
