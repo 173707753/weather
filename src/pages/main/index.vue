@@ -58,16 +58,17 @@ export default {
 
     a {
       text-decoration: none;
-      background-color: rgba(25, 58, 115, .5);
+      background-color: rgba(6, 42, 123, 0.6);
       color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 2.2vh;
+      border-radius: 1vh;
+      padding: 0.5vh 1.2vh;
+      font-size: 1.8vh;
+      font-weight: bold;
       transition: background-color 0.3s;
     }
 
     a:hover {
-      background-color: #0073e6;
+      background-color: rgb(23, 147, 252);
     }
   }
 
@@ -86,8 +87,8 @@ export default {
   /* color: rgb(226 236 255 / 0%); */
   font-weight: bold;
   position: absolute;
-  top: 30%;
-  left: 40.5%;
+  top: 25%;
+  left: 41%;
   -webkit-text-stroke: 1px #413c47;
   -webkit-text-fill-color: #fff;
   animation: shine 2.4s infinite;
