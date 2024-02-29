@@ -22,7 +22,7 @@
             <div v-for="(group, index) in toolGroups" :key="index" class="tools">
               <div v-for="(item, itemIndex) in group" :key="itemIndex" class="tip"
                 :class="{ 'tip': true, 'tipBackground': item.label === selectedTool, 'selected': item.label === selectedTool }"
-                @click="toRunMain(item.label)">
+                @click="toRunMain(item)">
                 <img :src="item.imgSrc" alt=""
                   style="width: 4vh; height: 4vh;padding: 1vh;border-radius: 1.5vh;background-color: white;">
                 <div style="font-size: 1.8vh ;font-weight: bold;">{{ item.label }}</div>
@@ -43,23 +43,23 @@ export default {
     return {
       toolGroups: [
         [
-          { imgSrc: require("@/assets/img/jiduan/kanban.png"), label: "数据看板" },
-          { imgSrc: require("@/assets/img/jiduan/dingwei.png"), label: "故障定位" },
+          { imgSrc: require("@/assets/img/jiduan/kanban.png"), label: "数据看板", path:'/kanban'},
+          { imgSrc: require("@/assets/img/jiduan/dingwei.png"), label: "故障定位", path:'/dingwei' },
 
         ],
         [
-          { imgSrc: require("@/assets/img/jiduan/zhenduan.png"), label: "故障诊断" },
-          { imgSrc: require("@/assets/img/jiduan/tuopu.png"), label: "网络拓扑" },
+          { imgSrc: require("@/assets/img/jiduan/zhenduan.png"), label: "故障诊断", path:'/zhenduan' },
+          { imgSrc: require("@/assets/img/jiduan/tuopu.png"), label: "网络拓扑" , path:'/tuopu'},
 
         ],
         [
-          { imgSrc: require("@/assets/img/jiduan/yujing.png"), label: "风险预警" },
-          { imgSrc: require("@/assets/img/jiduan/pinggu.png"), label: "韧性评估" },
+          { imgSrc: require("@/assets/img/jiduan/yujing.png"), label: "风险预警" , path:'/yujing'},
+          { imgSrc: require("@/assets/img/jiduan/pinggu.png"), label: "韧性评估" , path:'/pingu'},
 
         ],
         [
-          { imgSrc: require("@/assets/img/jiduan/shebei.png"), label: "设备监管" },
-          { imgSrc: require("@/assets/img/jiduan/daping.png"), label: "数据大屏" },
+          { imgSrc: require("@/assets/img/jiduan/shebei.png"), label: "设备监管" , path:'/shebei'},
+          { imgSrc: require("@/assets/img/jiduan/daping.png"), label: "数据大屏", path:'/main' },
         ]
       ],
       value: new Date(),
@@ -72,37 +72,8 @@ export default {
   },
   methods: {
     toRunMain(label) {
-      console.log(label);
-      this.selectedTool = label;
-      switch (label) {
-        case '数据看板':
-          this.$router.push("/kanban");
-          break;
-        case '故障定位':
-          this.$router.push("/dingwei");
-          break;
-        case '故障诊断':
-          this.$router.push("/zhenduan");
-          break;
-        case '网络拓扑':
-          this.$router.push("/tuopu");
-          break;
-        case '风险预警':
-          this.$router.push("/yujing");
-          break;
-        case '韧性评估':
-          this.$router.push("/pingu");
-          break;
-        case '设备监管':
-          this.$router.push("/shebei");
-          break;
-        case '数据大屏':
-          this.$router.push("/main");
-          break;
-        default:
-          // 如果label不匹配任何情况，可以添加默认处理逻辑
-          break;
-      }
+      this.selectedTool = label.label;
+      this.$router.push(label.path);
     },
     toRunLoginHome() {
       this.$router.push("/login");
@@ -127,7 +98,7 @@ export default {
     background-color: #fff;
     color: #333;
     text-align: center;
-    width: 16vw;
+    width: 16vw !important;
     height: 90vh;
     padding: 15px;
   }
@@ -161,7 +132,12 @@ export default {
     cursor: pointer;
     // background-color: blue;
   }
-
+  .tip:hover {
+    background-color: #5588f3;
+    border-radius: 2vh;
+    color: #fff;
+}
+ 
   .tipBackground {
     background-color: #5588f3;
     border-radius: 2vh;
