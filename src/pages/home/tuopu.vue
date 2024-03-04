@@ -1,5 +1,5 @@
 <template>
-    <div id="topologyChart" style="width: 60vw; height: 80vh;margin-left: 10vw;">
+    <div id="topologyChart" style="width: 70vw; height: 80vh;margin-left: 5vw;">
     </div>
 </template>
 
