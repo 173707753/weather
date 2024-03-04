@@ -10,24 +10,48 @@ export default {
     data() {
         return {
             // 拓扑图的数据
-            topologyData: {
-                // 节点数据 category：节点类型
+            topologyData: {                // 节点数据 category：节点类型
                 nodes: [
                     { id: '1', name: 'Node 1', category: 0 },
                     { id: '2', name: 'Node 2', category: 1 },
-                    { id: '3', name: 'Node 3', category: 1 },
-                    { id: '4', name: 'Node 4', category: 0 },
+                    { id: '3', name: 'Node 3', category: 2 },
+                    { id: '4', name: 'Node 4', category: 3 },
                     { id: '5', name: 'Node 5', category: 0 },
                     { id: '6', name: 'Node 6', category: 1 },
+                    { id: '7', name: 'Node 7', category: 2 },
+                    { id: '8', name: 'Node 8', category: 3 },
+                    { id: '9', name: 'Node 9', category: 4 },
                 ],
                 // 边数据  source：初始节点 target：指向节点 
                 links: [
                     { source: '1', target: '2' },
-                    { source: '1', target: '3' },
-                    { source: '2', target: '4' },
-                    { source: '3', target: '4' }
-                ]
-            }
+                    { source: '2', target: '3' },
+                    { source: '3', target: '4' },
+                    { source: '4', target: '5' },
+                    { source: '5', target: '6' },
+                    { source: '6', target: '7' },
+                    { source: '7', target: '8' },
+                    { source: '8', target: '9' },
+                    { source: '9', target: '1' },
+                ],
+            },
+            categories: [
+                {
+                    name: 'Category 0'
+                },
+                {
+                    name: 'Category 1'
+                },
+                {
+                    name: 'Category 2'
+                },
+                {
+                    name: 'Category 3'
+                },
+                {
+                    name: 'Category 4'
+                },
+            ]
         }
     },
     mounted() {
@@ -44,7 +68,7 @@ export default {
             const nodeData = nodes.map(node => ({
                 id: node.id,
                 name: node.name,
-                symbolSize: 30,
+                symbolSize: 20,
                 category: node.category
             }))
             // 构造边数据
@@ -65,7 +89,7 @@ export default {
                 tooltip: {},
                 legend: [
                     {
-                        data: ['Category 0', 'Category 1']
+                        data: ['Category 0', 'Category 1', 'Category 2', 'Category 3', 'Category 4']
                     }
                 ],
                 animationDurationUpdate: 1500,
@@ -76,19 +100,18 @@ export default {
                         layout: 'force',
                         roam: true,
                         symbol: 'circle',
+                        label: {
+                            show: true
+                        },
                         force: {
-                            repulsion: 100
+                            repulsion: 500,
+                        },
+                        lineStyle: {
+                            color: 'red'
                         },
                         data: nodeData,
                         links: edgeData,
-                        categories: [
-                            {
-                                name: 'Category 0'
-                            },
-                            {
-                                name: 'Category 1'
-                            }
-                        ]
+                        categories: this.categories,
                     }
                 ]
             }
