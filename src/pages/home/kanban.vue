@@ -47,12 +47,14 @@
     <el-row>
       <el-col :span="24">
         <el-card class="box">
-          <div style="font-size: 2vh;font-weight: bold;"><span><i class="el-icon-caret-right"></i></span>管理日历</div>
+          <div style="font-size: 2vh;font-weight: bold;">
+            <span><i class="el-icon-caret-right"></i></span>管理日历
+          </div>
           <div class="cal">
             <div>
-              <div>视频</div>
-              <div>视频</div>
-              <div>视频</div>
+              <div class="video">视频</div>
+              <div class="video">视频</div>
+              <div class="video">视频</div>
             </div>
             <div style="width: 60vw;">
               <el-calendar v-model="value">
@@ -137,6 +139,13 @@ export default {
     display: flex;
     // align-items: center;
     justify-content: space-around;
+
+    .video {
+      border: 1px solid skyblue;
+      border-radius: 0.8vh;
+      padding: 0.5vh;
+      cursor: pointer;
+    }
   }
 }
 </style>
