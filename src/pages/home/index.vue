@@ -37,6 +37,7 @@
     </el-container>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -114,11 +115,11 @@ export default {
     height: 86vh;
     background-color: #ebf0fd;
     border: 2px solid rgb(153, 196, 248);
-    border-radius: 8px;
+    border-radius: 1.2vh;
   }
 
   .tools {
-    font-size: 16px;
+    font-size: 2vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
