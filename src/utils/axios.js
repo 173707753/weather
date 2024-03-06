@@ -6,6 +6,7 @@ import router from '@/router/index'
 import { Message } from 'element-ui'
 import { objToUrlParamString } from '@/utils/utils'
 
+// console.log(axios.defaults, 'axios.defaults');
 // 设置默认请求超时事件  60s
 axios.defaults.timeout = 60000
 
@@ -13,7 +14,7 @@ axios.defaults.timeout = 60000
 axios.defaults.routeChangeCancel = true
 
 //验证返回其他状态码
-axios.defaults.validateStatus = function(status) {
+axios.defaults.validateStatus = function (status) {
 	return status >= 200 && status <= 500 // 默认的
 }
 //跨域请求，允许保存cookie

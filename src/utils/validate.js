@@ -1,7 +1,3 @@
-/**
- * Created by jiachenpan on 16/11/18.
- */
-
 export function isvalidUsername(str) {
 	const valid_map = ['admin', 'editor']
 	return valid_map.indexOf(str.trim()) >= 0
@@ -64,7 +60,7 @@ export function validatAlphabets(str) {
 	return reg.test(str)
 }
 /*验证pad还是pc*/
-export const vaildatePc = function() {
+export const vaildatePc = function () {
 	const userAgentInfo = navigator.userAgent
 	const Agents = [
 		'Android',
