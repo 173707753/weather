@@ -30,9 +30,12 @@ export default {
                     { source: '4', target: '5' },
                     { source: '5', target: '6' },
                     { source: '6', target: '7' },
+                    { source: '7', target: '2' },
                     { source: '7', target: '8' },
+                    { source: '9', target: '4' },
                     { source: '8', target: '9' },
                     { source: '9', target: '1' },
+                    { source: '9', target: '5' },
                 ],
             },
             categories: [
