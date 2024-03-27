@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <iframe src="unity/index.html" class="unityContainer" />
     <div class="returnHome">
       <router-link to="/home"><i class="el-icon-back"></i><span style="margin-left: 0.2vh;">返回</span></router-link>
     </div>
@@ -45,7 +46,7 @@ export default {
 .main {
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/img/jiduan/daping_bgimg.jpg');
+  // background-image: url('../../assets/img/jiduan/daping_bgimg.jpg');
   background-size: 100% auto;
   background-position-y: 100%;
 
@@ -107,5 +108,18 @@ export default {
   50% {
     text-shadow: 0 0 10px #0000FF, 0 0 40px #0000FF;
   }
+}
+
+.unityContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  // margin-left: 50vw;
+  // transform: translateX(-50%);
+  // margin-top: 12vh;
+  // width: 48vw;
+  // height: 62vh;
 }
 </style>
