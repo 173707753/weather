@@ -34,7 +34,7 @@
             </div>
           </div>
         </div>
-        <!-- <Map /> -->
+        <Map />
       </div>
       <!-- 右边数据 -->
       <div class="Insectpest_t_right">

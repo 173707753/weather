@@ -61,6 +61,9 @@ export default {
         [
           { imgSrc: require("@/assets/img/jiduan/shebei.png"), label: "设备监管", path: '/shebei' },
           { imgSrc: require("@/assets/img/jiduan/daping.png"), label: "数据大屏", path: '/main' },
+        ],
+        [
+          { imgSrc: require("@/assets/img/jiduan/shebei.png"), label: "数字孪生", path: '/digitalTwin' },
         ]
       ],
       value: new Date(),

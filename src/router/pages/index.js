@@ -58,6 +58,12 @@ export default [
 				component: () =>
 					import(/* webpackChunkName: "pages" */ '@/pages/home/shebei.vue'),
 			},
+			{
+				path: '/digitalTwin',
+				meta: { isTab: false, auth: true },
+				component: () =>
+					import(/* webpackChunkName: "pages" */ '@/pages/home/digitalTwin.vue'),
+			},
 
 
 		]
