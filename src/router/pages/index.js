@@ -10,12 +10,12 @@ export default [
 		meta: { isTab: false, auth: true },
 		component: () =>
 			import(/* webpackChunkName: "pages" */ '@/pages/home/index.vue'),
-			children: [
-			// {
-			// 	path: '',
-			// 	name: '看板',
-			// 	redirect: '/kanban',
-			// },
+		children: [
+			{
+				path: '',
+				name: '看板',
+				redirect: '/kanban',
+			},
 			{
 				path: '/kanban',
 				meta: { isTab: false, auth: true },

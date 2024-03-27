@@ -41,7 +41,7 @@
         <el-card class="shadow">
           <div style="font-size: 56px; font-weight: 600;text-align: center; color: red; ">24</div>
           <div class="text" style="margin-left: 4vw; margin-top: 6vh;">代办提醒</div>
-        </el-card>
+        </el-card>+
       </el-col>
     </el-row>
     <el-row>

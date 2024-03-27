@@ -1,6 +1,8 @@
 <template>
     <div class="contain">
         <div class="contain_title">韧性评估</div>
+        <div class="contain_title">评估指标</div>
+        <div class="contain_title">评估结果</div>
     </div>
 </template>
 
