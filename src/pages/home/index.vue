@@ -64,7 +64,6 @@ export default {
         ],
         [
           { imgSrc: require("@/assets/img/jiduan/luansheng.png"), label: "数字孪生", path: '/digitalTwin' },
-          { imgSrc: require("@/assets/img/jiduan/luansheng.png"), label: "数字孪生", path: '/digitalTwin' },
         ]
       ],
       value: new Date(),
@@ -126,11 +125,12 @@ export default {
     font-size: 2vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content:flex-start;
     margin-bottom: 4vh;
   }
 
   .tip {
+    margin-left: 1.4vw;
     width: 10vh;
     height: 10vh;
     padding-top: 1vh;
